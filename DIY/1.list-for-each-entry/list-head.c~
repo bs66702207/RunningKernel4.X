@@ -1,0 +1,30 @@
+//list_head
+/*
+    这两个macro在Kernel里也算蛮常出现的， 是用来将list_head做初始化的，它的初始化就是将next和prev这两个栏位设为跟结构的地址相同。
+    所以， 如果我们在程序里看到这样的程序， 它的意思就是宣告一个list_head结构的变数hello，并将prev和next都设成hello的地址。
+*/
+#define LIST_HEAD_INIT(name) { &(name), &(name) }
+
+#define LIST_HEAD(name) \ 
+    struct list_head name = LIST_HEAD_INIT(name)
+
+static inline void
+INIT_LIST_HEAD(struct list_head *list) 
+{   
+    list->next = list->prev = list;
+}
+
+/*
+    因此， 如果要检查这个list是否是空的， 只要检查hello.next是否等于&hello就可以了。事实上， Linux也提供了一个叫list_empty()的函式来检查list是否为空的。
+*/
+static inline bool
+list_empty(struct list_head *head)
+{
+    return head->next == head;
+}
+
+/*
+    在Linux内核链表中，需要用链表组织起来的数据通常会包含一个struct list_head成员，例如在[include/linux/netfilter.h]中定义了一个nf_sockopt_ops结构来描述Netfilter为某一协议族准备的getsockopt/setsockopt接口，其中就有一个（struct list_head list）成员，各个协议族的nf_sockopt_ops结构都通过这个list成员组织在一个链表中，表头是定义在[net/core/netfilter.c]中的nf_sockopts(struct list_head)，我们可以参考本目录的图片nf_sockopts_list_head_demo.jpg
+*/
+
+

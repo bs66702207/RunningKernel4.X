@@ -105,10 +105,92 @@ load_avg_contrib = ————————————————————�
 					  runnable_avg_period
 	runnable_avg_sum越接近runnable_avg_period，则平均负载越大，表示该调度实体一直在占用CPU。
 
+3.2.2 进程创建
+struct sched_entity {//调度实体
+    struct load_weight  load;//权重
+    struct rb_node  run_node;//在红黑树中的结点
+    struct list_head    group_node;
+    unsigned int    on_rq;//是否在就绪队列中接收调度
+    u64 exec_start;//计算虚拟运行时间需要的信息
+    u64 sum_exec_runtime;//计算虚拟运行时间需要的信息
+    u64 vruntime;//虚拟运行时间
+    u64 prev_sum_exec_runtime;//计算虚拟运行时间需要的信息
+    u64 nr_migrations;
+    ...
+#ifdef CONFIG_SMP
+    struct sched_avg    avg ____cacheline_aligned_in_smp;//负载信息
+#endif
+};
+    do_fork()->sched_fork()->__sched_fork()函数会把新创建进程的调度实体se相关成员初始化为0，因为这些值不能用父进程，
+子进程将来要参与调度，和父进程分道扬镳。
+    do_fork()->sched_fork()->task_fork_fair()函数的参数p表示新创建的进程。task_struct里内嵌了sched_entity，因此可以通过task_struct中得到
+该进程的调度实体。smp_processor_id()从当前进程thread_info结构中的cpu成员获取当前CPU id。系统中每个CPU有一个就绪队列(runqueue)，它是Per-CPU
+类型，即每个CPU有一个struct rq数据结构。this_rq()可以获取当前CPU的就绪队列数据结构struct rq。
+struct rq {
+    unsigned int nr_running;
+    struct load_weight load;//就绪队列的权重信息load
+    struct cfs_rq cfs;//CFS调度器就绪队列数据结构
+    struct rt_rq rt;//realtime调度器就绪队列数据结构
+    struct dl_rq dl;//deadline调度器就绪队列数据结构
+    struct task_struct *curr, *idle, *stop;
+    u64 clock;
+    u64 clock_task;
+    int cpu;
+    int online;
+...
+}
 
+struct cfs_rq {
+    struct load_weight load;
+    unsigned int nr_running, h_nr_running;
+    u64 exec_clock;
+    u64 min_vruntime;
+    struct sched_entity *curr, *next, *last, *skip;
+    unsigned long runnable_load_avg, blocked_load_avg;
+...
+}
+    CFS总是在红黑树中选择vruntime最小的进程进行调度，优先级高(nice低)的进程总会被优先选择，随着vruntime增长，优先级低的进程也会有机会运行。
+3.2.3 进程调度
+    __schedule()是调度器的核心函数，其作用是让调度器选择和切换到一个合适进程运行。调度的时机见原文吧。
+3.2.4 scheduler tick
+3.2.5 组调度
+struct task_group {
+    struct cgroup_subsys_state css;
+#ifdef CONFIG_FAIR_GROUP_SCHED //还需要打开 CONFIG_CGROUP_SCHED
+    struct sched_entity **se;
+    struct cfs_rq **cfs_rq;
+    unsigned long shares;
 
+#ifdef  CONFIG_SMP
+    atomic_long_t load_avg ____cacheline_aligned;
+#endif
+#endif
 
+#ifdef CONFIG_RT_GROUP_SCHED
+    struct sched_rt_entity **rt_se;
+    struct rt_rq **rt_rq;
+    struct rt_bandwidth rt_bandwidth;
+#endif
 
-
-
+    struct rcu_head rcu;
+    struct list_head list;
+    struct task_group *parent;
+    struct list_head siblings;
+    struct list_head children;
+#ifdef CONFIG_SCHED_AUTOGROUP
+    struct autogroup *autogroup;
+#endif
+    struct cfs_bandwidth cfs_bandwidth;
+};
+3.2.6 PELT算法改进
+    存在问题: 一次更新只有一个调度实体的负载变化，而没有更新cfs_rq所有调度实体的负载变化。Linux 4.3已解决，并且考虑CPU频率因素。
+3.2.7 小结
+    1. 每个CPU有一个通用就绪队列struct rq。rq=this_rq()
+    2. 每个task_struct中内嵌一个调度实体struct sched_entity se结构体。se=&p->se
+    3. 每个通用就绪队列数据结构中内嵌CFS就绪队列、RT就绪队列和Deadline就绪队列结构体。cfs_rq=&rq->cfs
+    4. 每个调度实体se内嵌一个权重struct load_weight load结构体。
+    5. 每个调度实体se内嵌一个平均负载struct sched_av avg结构体。
+    6. 每个调度实体se有一个vruntime成员表示该调度实体的虚拟时钟。
+    7. 每个调度实体se有一个on_rq成员表示该调度实体是否在就绪队列中接受调度。
+    ...
 

@@ -1,0 +1,2763 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://www.wowotech.net/comm/i2c_consumer.html
+Subject: Linux I2C framework(3)_I2C consumer
+Date: Tue, 22 Apr 2019 02:01:56 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----"
+
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: text/html
+Content-ID: <frame-30-9ab7bf57-d44a-4b43-9f05-9aee06808b81@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.wowotech.net/comm/i2c_consumer.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta http-equiv=3D"Content-Type" content=3D"text/htm=
+l; charset=3DUTF-8">
+<style id=3D"znBdcsStyle" type=3D"text/css">.bdcs-container .bdcs-main,.bdc=
+s-container .bdcs-main *{box-sizing:content-box;margin:0;padding:0;float:no=
+ne;clear:none;overflow:hidden;white-space:nowrap;word-wrap:normal;border:0;=
+background:0 0;width:auto;height:auto;max-width:none;min-width:none;max-hei=
+ght:none;min-height:none;border-radius:0;box-shadow:none;transition:none;te=
+xt-align:left}.bdcs-container .bdcs-clearfix:after{content:'';display:block=
+;clear:both;height:0}.bdcs-container .bdcs-clearfix{zoom:1}.bdcs-container =
+.bdcs-main{overflow:visible}.bdcs-container .bdcs-search{display:block;over=
+flow:visible;position:relative;border-style:solid}.bdcs-container .bdcs-sea=
+rch-form-input-wrap{display:inline-block}.bdcs-container .bdcs-search-form-=
+input{border-width:1px;border-style:solid;display:inline-block;vertical-ali=
+gn:top;text-indent:5px;background-color:#fff;float:left}.bdcs-container .bd=
+cs-search-form-input:focus{border-width:1px;border-style:solid;outline:0}.b=
+dcs-container .bdcs-search-form-submit-wrap{display:inline-block}.bdcs-cont=
+ainer .bdcs-search-form-submit{display:inline-block;cursor:pointer;border-w=
+idth:1px;border-style:solid;vertical-align:top;text-align:center;width:50px=
+;//_overflow:hidden}.bdcs-container .bdcs-search-form-submit-magnifier{widt=
+h:45px;padding:0;text-indent:-999em;overflow:hidden;background:url(http://z=
+nsv.baidu.com/static/customer-search/component/search/magnifier-icon.png) n=
+o-repeat center center;_background:url(http://znsv.baidu.com/static/custome=
+r-search/component/search/magnifier-icon_ie6.png) no-repeat center center}d=
+iv#default-searchbox .default-channel-meun{position:relative;width:75px;dis=
+play:inline-block;vertical-align:middle;cursor:pointer;background:#fff;floa=
+t:left;overflow:visible}div#default-searchbox .default-channel-current{bord=
+er:1px solid;position:relative;width:100%;border-right:0}div#default-search=
+box .default-channel-current span{margin-left:8px}div#default-searchbox .de=
+fault-channel-current i{overflow:hidden;width:0;height:0;border-width:6px 6=
+px 0;border-color:#9E9E9E #fff;border-style:solid;display:block;position:ab=
+solute;right:10px;top:11px}div.cse-default-channel-container{display:block;=
+position:absolute;z-index:30061000000}div.cse-default-channel-container .de=
+fault-channel-list{display:none;width:99%;list-style:none;background:#fff;b=
+order:1px solid #DDD;border-top:0;margin:0;padding:0}div.cse-default-channe=
+l-container .default-channel-list li{background:0 0;line-height:24px;list-s=
+tyle:none;display:block;padding-left:7px;cursor:pointer}div.cse-default-cha=
+nnel-container .default-channel-list li:hover{background:#DDD}.bdcs-contain=
+er .bdcs-search-form-input-wrap{}.bdcs-container .bdcs-search-form-input-no=
+tspan{margin-left:0px;font-family:Arial,SimSun,sans-serif;color:#000000;fon=
+t-size:12px;}.bdcs-container .bdcs-search-form-input .icon-nofocus{left:;ri=
+ght:;top:;height:;width:;}.bdcs-container .bdcs-search{width:212px;height:2=
+4px;overflow:visible;border-color:#ffffff;border-radius:0px;border-width:0p=
+x;box-shadow:none;background-color:none;}.bdcs-container .bdcs-search-form-=
+input{border-color:#a6a6a6;margin-right:10px;width:148px;height:22px;line-h=
+eight:22px;font-family:Arial,SimSun,sans-serif;color:#000000;font-size:12px=
+;border-radius:0px;background-color:#FFFFFF;}.bdcs-container .bdcs-search-f=
+orm-input:focus{border-color:#f79646;}.bdcs-container .bdcs-search-form-sub=
+mit-wrap{}.bdcs-container .bdcs-search-form-submit{border-color:#a6a6a6;hei=
+ght:22px;width:50px;background-color:#f5f5f5;color:#000000;font-family:Aria=
+l,SimSun,sans-serif;font-size:12px;border-radius:0px;}.bdcs-container .bdcs=
+-search-form-submit{*height:24px;*margin-top:1px;}.bdcs-container .bdcs-sea=
+rch-form-submit{line-height:22px;}#bdcs-rec{display:none;}</style>
+<title>Linux I2C framework(3)_I2C consumer</title>
+<meta name=3D"keywords" content=3D"Linux =E5=B5=8C=E5=85=A5=E5=BC=8F ARM RT=
+OS Technology =E4=BA=AB=E5=8F=97 C=E8=AF=AD=E8=A8=80,Linux,I2C,consumer,sla=
+ve">
+<meta name=3D"description" content=3D"1. =E5=89=8D=E8=A8=80  =E6=9C=AC=E6=
+=96=87=E4=BB=8EI2C consumer=E7=9A=84=E8=A7=92=E5=BA=A6=EF=BC=8C=E4=BB=8B=E7=
+=BB=8D=E6=80=8E=E4=B9=88=E5=9C=A8linux=E4=B8=AD=EF=BC=8C=E5=88=A9=E7=94=A8I=
+2C framework=E6=8F=90=E4=BE=9B=E7=9A=84=E6=8E=A5=E5=8F=A3=EF=BC=8C=E7=BC=96=
+=E5=86=99I2C slave device=E7=9A=84=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E3=
+=80=82  2. =E4=B8=A4=E7=A7=8D...">
+<meta name=3D"generator" content=3D"emlog">
+<link rel=3D"EditURI" type=3D"application/rsd+xml" title=3D"RSD" href=3D"ht=
+tp://www.wowotech.net/xmlrpc.php?rsd">
+<link rel=3D"wlwmanifest" type=3D"application/wlwmanifest+xml" href=3D"http=
+://www.wowotech.net/wlwmanifest.xml">
+<link rel=3D"alternate" type=3D"application/rss+xml" title=3D"RSS" href=3D"=
+http://www.wowotech.net/rss.php">
+<link href=3D"http://www.wowotech.net/content/templates/default/main.css" r=
+el=3D"stylesheet" type=3D"text/css">
+<link href=3D"http://www.wowotech.net/admin/editor/plugins/code/prettify.cs=
+s" rel=3D"stylesheet" type=3D"text/css">
+
+
+<!--[if IE 6]>
+<script src=3D"http://www.wowotech.net/content/templates/default/iefix.js" =
+type=3D"text/javascript"></script>
+<![endif]-->
+<style>html #hm_t_undefined .hm-t-go-top {position:fixed;right:2px;bottom:2=
+px;z-index:99998;cursor:pointer;width:40px;height:37px!important;text-align=
+:center;white-space:normal;font-size:14px;line-height:17px;padding-top:3px;=
+color:#fff;background:#404040;background:url(data:image/png;base64,iVBORw0K=
+GgoAAAANSUhEUgAAAEkAAAAXCAYAAABH92JbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJ=
+lYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77=
+u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iY=
+WRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2=
+MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHR=
+wOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdG=
+lvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuM=
+C9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz=
+b3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1=
+NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMjgwMTE3NDA3MjA2ODExODA4M0UyNDA4OD=
+dDRTZBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQjc5RkRFNkI5ODMxMUUzQkZGNDhEN=
+EJFQjM2OTcyRiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQjc5RkRFNUI5ODMxMUUzQkZG=
+NDhENEJFQjM2OTcyRiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWN=
+pbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MD=
+I4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5ka=
+WQ6MDI4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+=
+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HPYM5AAACC0lEQVR=
+42uyZTSgEYRjH90NoqaVcpDblvKW2XOSkNh8H5Yac9sBBDqQokiJKSMpNTi5OPo6Ktsgu67JcUH=
+IXWfK1u3b8Xx6Zxuzu+64dM83uv34zNfu8b8/8Z+d5P8YqSZLFJNLsRmyWvIRMKgVD4AhEwA3YA=
+V0pzGwEqyAEwmAddIICHe7FqhnsdQM14FxKLj+ooFiGE2ykiD8GVbJ4I1ELAnTmasMODnAhpVcI=
+FIMicMgRH6Z4IxnUAh4pP3Zu5TVpUOLXDJgWiB8wkEF9IK7IL07X05oUFLjpZ4JXQQOYYwfzafJ=
+coDjVPqw43KE4lWtUTF+AQ8eBqQSsgTaO2E0apJ7URrdCDZOM62hQJfBzGmShOD+1+2XSiYaJ7u=
+tkkBsEgEewnYfauZUmzWmU6DuY0sEgLzgArgzbu6i992cu/1WclqXsa1iHIt0DYlnKP0b9fRZu5=
+pWdZs7dWXqa7B80+s//oF5aMSjflGqBPq5BQnFtVv4UmGHjIPEH96PAZ6C5kVMwf6daPzbFKnqC=
+qvx9Bk/yFjSBFTMvcL+1DerAmUA/p9Rm1+y7AHJdgnqwx9EHm1s0gKtc2CpR6gE00/ZHMm3RKxb=
+Jlf0kNb2BDrCk8hsbDdvBay5tuiUTGxL7waTs2iLw0YTR9BLZQRwDUVqwjuTS9q3VRB8C1OQUnM=
+6UqdXX/IcADn0IMADs2AqDOPSutQAAAABJRU5ErkJggg=3D=3D) no-repeat -42px center =
+#666;*background-image:url(http://ecma.bdimg.com/holmes/t-popup-icons-png8.=
+png);_position:absolute;_top:expression(eval(document.documentElement.scrol=
+lTop+(document.documentElement.clientHeight||document.body.clientHeight)-th=
+is.offsetHeight-2));}</style></head>
+<body>
+<div id=3D"wrap">
+  <div id=3D"header">
+    <h1><a href=3D"http://www.wowotech.net/">=E8=9C=97=E7=AA=9D=E7=A7=91=E6=
+=8A=80</a></h1>
+    <h3>=E6=85=A2=E4=B8=8B=E6=9D=A5=EF=BC=8C=E4=BA=AB=E5=8F=97=E6=8A=80=E6=
+=9C=AF=E3=80=82</h3>
+  </div>
+    <div id=3D"banner"><a href=3D"http://www.wowotech.net/"><img src=3D"htt=
+p://www.wowotech.net/content/uploadfile/201401/top-1389777175.jpg" height=
+=3D"134" width=3D"960"></a></div>
+    <div id=3D"nav">	<ul class=3D"bar">
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/">=E5=8D=9A=E5=AE=A2</a>
+					</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/sort/project">=E9=A1=B9=E7=9B=AE</a>
+			            <ul class=3D"sub-nav">
+                <li><a href=3D"http://www.wowotech.net/sort/x_project">X Pr=
+oject</a></li>			</ul>
+            		</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/forum" target=3D"_blank">=E8=AE=A8=E8=
+=AE=BA=E5=8C=BA</a>
+					</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/about.html">=E5=85=B3=E4=BA=8E=E8=9C=
+=97=E7=AA=9D</a>
+					</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/contact_us.html">=E8=81=94=E7=B3=BB=
+=E6=88=91=E4=BB=AC</a>
+					</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/support_us.html">=E6=94=AF=E6=8C=81=
+=E4=B8=8E=E5=90=88=E4=BD=9C</a>
+					</li>
+			<li class=3D"item common">
+			<a href=3D"http://www.wowotech.net/admin">=E7=99=BB=E5=BD=95</a>
+					</li>
+		</ul>
+</div>=EF=BB=BF<div id=3D"content">
+<div id=3D"contentleft">
+	<h2>Linux I2C framework(3)_I2C consumer</h2>
+	<p class=3D"date">=E4=BD=9C=E8=80=85=EF=BC=9A<a href=3D"http://www.wowotec=
+h.net/author/2" title=3D" runangaozhong@163.com">wowo</a> =E5=8F=91=E5=B8=
+=83=E4=BA=8E=EF=BC=9A2016-3-23 22:05=20
+			=E5=88=86=E7=B1=BB=EF=BC=9A<a href=3D"http://www.wowotech.net/sort/comm"=
+>=E9=80=9A=E4=BF=A1=E7=B1=BB=E5=8D=8F=E8=AE=AE</a>
+	 	</p>
+	<h4>1. =E5=89=8D=E8=A8=80</h4>  <p>=E6=9C=AC=E6=96=87=E4=BB=8EI2C consumer=
+=E7=9A=84=E8=A7=92=E5=BA=A6=EF=BC=8C=E4=BB=8B=E7=BB=8D=E6=80=8E=E4=B9=88=E5=
+=9C=A8linux=E4=B8=AD=EF=BC=8C=E5=88=A9=E7=94=A8I2C framework=E6=8F=90=E4=BE=
+=9B=E7=9A=84=E6=8E=A5=E5=8F=A3=EF=BC=8C=E7=BC=96=E5=86=99I2C slave device=
+=E7=9A=84=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E3=80=82</p>  <h4>2. =E4=B8=
+=A4=E7=A7=8D=E8=AE=BE=E5=A4=87=E5=BD=A2=E6=80=81</h4>  <p>=E5=B5=8C=E5=85=
+=A5=E5=BC=8F=E7=B3=BB=E7=BB=9F=E4=B8=AD=EF=BC=8CI2C=E6=80=BB=E7=BA=BF=E4=B8=
+=8A=E8=BF=9E=E6=8E=A5=E7=9A=84slave device=EF=BC=8C=E6=9C=89=E4=B8=A4=E7=A7=
+=8D=E5=BD=A2=E6=80=81=EF=BC=8C=E5=A6=82=E4=B8=8B=EF=BC=9A</p>  <p align=3D"=
+center"><a href=3D"http://www.wowotech.net/content/uploadfile/201603/cbab86=
+12282603238ac3c38e8ca4b62420160323140500.gif"><img style=3D"background-imag=
+e: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; di=
+splay: block; float: none; border-top-width: 0px; border-bottom-width: 0px;=
+ margin-left: auto; border-left-width: 0px; margin-right: auto; padding-top=
+: 0px" title=3D"i2c-slave-device" border=3D"0" alt=3D"i2c-slave-device" src=
+=3D"http://www.wowotech.net/content/uploadfile/201603/bcbfdeb5e2740ec0411d5=
+52124ddb98320160323140500.gif" width=3D"640" height=3D"221"></a>=E5=9B=BE=
+=E7=89=871 I2C slave device=E7=9A=84=E4=B8=A4=E7=A7=8D=E5=BD=A2=E6=80=81</p=
+>  <blockquote>   <p>=E5=BD=A2=E6=80=811=EF=BC=8CCPU=E5=92=8C=E8=AE=BE=E5=
+=A4=87=E4=B9=8B=E9=97=B4=E7=9A=84=E6=89=80=E6=9C=89=E6=95=B0=E6=8D=AE=E4=BA=
+=A4=E4=BA=92=EF=BC=8C=E9=83=BD=E6=98=AF=E9=80=9A=E8=BF=87I2C=E6=80=BB=E7=BA=
+=BF=E8=BF=9B=E8=A1=8C=EF=BC=8C=E6=B2=A1=E6=9C=89=E5=85=B6=E5=AE=83=E6=96=B9=
+=E5=BC=8F=EF=BC=8C=E5=A6=82PMIC=E3=80=81Audio codec=E7=AD=89=E3=80=82</p>  =
+  <p>=E5=BD=A2=E6=80=812=EF=BC=8CI2C=E5=8F=AA=E6=98=AFCPU=E5=92=8C=E8=AE=BE=
+=E5=A4=87=E4=B9=8B=E9=97=B4=E8=BF=9B=E8=A1=8C=E6=95=B0=E6=8D=AE=E4=BA=A4=E4=
+=BA=92=E7=9A=84=E4=B8=80=E7=A7=8D=EF=BC=8C=E4=BE=8B=E5=A6=82HDMI=EF=BC=8C=
+=E5=9B=BE=E5=83=8F=E4=BB=A5=E5=8F=8A=E9=9F=B3=E9=A2=91=E6=95=B0=E6=8D=AE=E9=
+=80=9A=E8=BF=87TDMS=E6=8E=A5=E5=8F=A3=E4=BC=A0=E8=BE=93=EF=BC=8CEDID=E7=AD=
+=89=E4=BF=A1=E6=81=AF=E7=9A=84=E4=BA=A4=E4=BA=92=E9=80=9A=E8=BF=87I2C=E6=80=
+=BB=E7=BA=BF=EF=BC=88=E5=9C=A8HDMI=E5=8D=8F=E8=AE=AE=E4=B8=AD=E7=A7=B0=E4=
+=BD=9CDDC=E6=8E=A5=E5=8F=A3=EF=BC=89=E3=80=82</p> </blockquote>  <p>=E8=BF=
+=99=E4=B8=A4=E7=A7=8D=E8=AE=BE=E5=A4=87=E5=BD=A2=E6=80=81=E5=86=B3=E5=AE=9A=
+=E4=BA=86=E8=AE=BE=E5=A4=87=E5=9C=A8=E8=AE=BE=E5=A4=87=E6=A8=A1=E5=9E=8B=E4=
+=B8=AD=E7=9A=84=E4=BD=8D=E7=BD=AE=EF=BC=9A</p>  <blockquote>   <p>=E5=BD=A2=
+=E6=80=811=E6=AF=94=E8=BE=83=E7=AE=80=E5=8D=95=EF=BC=8C=E4=BB=A5PMIC=E4=B8=
+=BA=E4=BE=8B=EF=BC=8C=E5=8F=AF=E4=BB=A5=E6=8A=8A=E5=AE=83=E7=9C=8B=E4=BD=9C=
+I2C bus=E4=B8=8A=E7=9A=84=E4=B8=80=E4=B8=AA=E8=AE=BE=E5=A4=87=EF=BC=9B</p> =
+   <p>=E5=BD=A2=E6=80=812=E5=B0=B1=E5=A4=8D=E6=9D=82=E4=BA=86=EF=BC=8C=E4=
+=BB=A5TV=E4=B8=BA=E4=BE=8B=EF=BC=8C=E5=AE=83=E4=B8=80=E9=83=A8=E5=88=86=E5=
+=8A=9F=E8=83=BD=E5=8F=AF=E7=9C=8B=E4=BD=9CI2C bus=E4=B8=8A=E7=9A=84=E4=B8=
+=80=E4=B8=AA=E8=AE=BE=E5=A4=87=EF=BC=8C=E5=8F=A6=E4=B8=80=E9=83=A8=E5=88=86=
+=E6=98=AF=E5=8D=B4=E6=98=AFplatform bus=EF=BC=88HDMI Controller=EF=BC=89=E4=
+=B8=8A=E7=9A=84=E4=B8=80=E4=B8=AA=E8=AE=BE=E5=A4=87=EF=BC=8C=E5=AE=83=E7=9A=
+=84=E8=AE=BE=E5=A4=87=E9=A9=B1=E5=8A=A8=E8=A6=81=E6=80=8E=E4=B9=88=E5=86=99=
+=EF=BC=9F=E4=B8=80=E8=88=AC=E6=98=AF=E4=BB=A5=E5=85=B6=E4=B8=BB=E8=A6=81=E5=
+=8A=9F=E8=83=BD=E4=B8=BA=E5=87=86=EF=BC=8CTV=E7=9A=84=E4=B8=BB=E8=A6=81=E5=
+=8A=9F=E8=83=BD=E6=98=8E=E6=98=BE=E6=98=AF=E9=9F=B3=E8=A7=86=E9=A2=91=E4=BC=
+=A0=E8=BE=93=EF=BC=8C=E5=9B=A0=E6=AD=A4=E5=BA=94=E8=AF=A5=E5=BD=93=E5=81=9A=
+=E4=B8=80=E4=B8=AAplatform=E8=AE=BE=E5=A4=87=E3=80=82</p> </blockquote>  <p=
+>=E5=9C=A8=E8=AE=BE=E5=A4=87=E6=A8=A1=E5=9E=8B=E4=B8=AD=E7=9A=84=E4=BD=8D=
+=E7=BD=AE=E4=B8=8D=E5=90=8C=EF=BC=8C=E6=9C=80=E7=BB=88=E5=8F=AF=E4=BB=A5=E4=
+=BD=93=E7=8E=B0=E5=9C=A8I2C slave device=E5=9C=A8DTS=E4=B8=AD=E7=9A=84=E6=
+=8F=8F=E8=BF=B0=E6=96=B9=E5=BC=8F=E7=9A=84=E4=B8=8D=E5=90=8C=EF=BC=8C=E5=85=
+=B7=E4=BD=93=E5=A6=82=E4=B8=8B=E3=80=82</p>  <p>=E5=BD=A2=E6=80=811=EF=BC=
+=8Cpmic=E7=9A=84DTS node=E6=98=AFi2c1=E7=9A=84=E4=B8=80=E4=B8=AAchild node=
+=EF=BC=8CI2C core=E8=B4=9F=E8=B4=A3=E8=AF=A5=E8=AE=BE=E5=A4=87=E7=9A=84=E5=
+=88=9B=E5=BB=BA=E5=92=8C=E6=B3=A8=E5=86=8C=EF=BC=8C=E4=BB=A5=E5=8F=8A=E5=92=
+=8C=E5=85=B6driver=E7=9A=84probe=E7=AD=89=E6=93=8D=E4=BD=9C=EF=BC=9A</p>  <=
+blockquote>   <p>/* arch/arm/boot/dts/imx6dl-riotboard.dts */</p>    <p><fo=
+nt style=3D"background-color: #ffff00">&amp;i2c1 {        <br></font>&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clock-frequency =3D &lt;100000&gt;;   =
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pinctrl-names =3D "defau=
+lt";       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pinctrl-0 =3D &lt=
+;&amp;pinctrl_i2c1&gt;;       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; status =3D "okay";       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+=E2=80=A6       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font style=
+=3D"background-color: #ffff00">pmic: pf0100@08</font> {       <br>&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp; compatible =3D "fsl,pfuze100";       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =E2=80=A6  =
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };       <br>&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...       <br>};       <br></p> </blockquo=
+te>  <p>=E5=BD=A2=E6=80=812=EF=BC=8Chdmi=E7=9A=84DTS node=E4=BD=8D=E4=BA=8E=
+=E6=A0=B9=E7=9B=AE=E5=BD=95=EF=BC=8C=E4=BD=9C=E4=B8=BAplatform device=E5=AD=
+=98=E5=9C=A8=EF=BC=8C=E5=AE=83=E7=9A=84DDC=E5=8A=9F=E8=83=BD=E6=89=80=E4=BD=
+=BF=E7=94=A8=E7=9A=84i2c2=EF=BC=8C=E6=98=AF=E4=BB=A5=E4=B8=80=E4=B8=AA=E5=
+=8F=98=E9=87=8F=E7=9A=84=E5=BD=A2=E5=BC=8F=E5=BC=95=E7=94=A8=E7=9A=84=EF=BC=
+=9A</p>  <blockquote>   <p>/* arch/arm/boot/dts/imx6dl-riotboard.dts */</p>=
+    <p>&amp;hdmi {      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font styl=
+e=3D"background-color: #ffff00"></font><font style=3D"background-color: #ff=
+ff00">ddc-i2c-bus =3D &lt;&amp;i2c2&gt;;        <br></font>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp; status =3D "okay";       <br>};</p> </blockquote=
+>  <p>=E8=BF=99=E4=B8=A4=E7=A7=8D=E4=B8=8D=E5=90=8C=E7=9A=84DTS=E6=8F=8F=E8=
+=BF=B0=EF=BC=8C=E5=86=B3=E5=AE=9A=E4=BA=86=E6=9C=80=E7=BB=88=E7=9A=84I2C sl=
+ave device driver=E6=9C=89=E4=B8=8D=E5=90=8C=E7=9A=84=E7=BC=96=E5=86=99=E6=
+=96=B9=E5=BC=8F=EF=BC=8C=E5=85=B7=E4=BD=93=E8=AF=B7=E5=8F=82=E8=80=83=E5=90=
+=8E=E9=9D=A2=E7=AB=A0=E8=8A=82=E7=9A=84=E6=8F=8F=E8=BF=B0=E3=80=82</p>  <h4=
+>3. =E9=A9=B1=E5=8A=A8=E7=BC=96=E5=86=99=E6=AD=A5=E9=AA=A4</h4>  <p>=E9=92=
+=88=E5=AF=B9=E7=AC=AC2=E7=AB=A0=E6=89=80=E6=8F=8F=E8=BF=B0=E7=9A=84=E4=B8=
+=A4=E7=A7=8D=E4=B8=8D=E5=90=8C=E7=9A=84=E8=AE=BE=E5=A4=87=E5=BD=A2=E6=80=81=
+=EF=BC=8C=E6=9C=89=E4=B8=A4=E7=A7=8D=E9=A9=B1=E5=8A=A8=E7=BC=96=E5=86=99=E6=
+=96=B9=E6=B3=95=E3=80=82</p>  <h5>3.1 =E5=BD=A2=E6=80=811</h5>  <p>1=EF=BC=
+=89=E6=A0=B9=E6=8D=AE=E7=A1=AC=E4=BB=B6=E7=9A=84=E8=BF=9E=E6=8E=A5=E6=96=B9=
+=E5=BC=8F=EF=BC=8C=E7=A1=AE=E5=AE=9A=E8=AF=A5=E8=AE=BE=E5=A4=87=E6=89=80=E4=
+=BB=8E=E5=B1=9E=E7=9A=84I2C controller=EF=BC=88=E5=9C=A8I2C framework=E4=B8=
+=AD=E7=A7=B0=E4=BD=9CI2C adapter=EF=BC=89=EF=BC=8C=E4=BE=8B=E5=A6=82=E7=AC=
+=AC2=E7=AB=A0=E4=BE=8B=E5=AD=90=E4=B8=AD=E7=9A=84i2c1=E3=80=82</p>  <p>2=EF=
+=BC=89=E5=9C=A8I2C adapter=E7=9A=84DTS node=E4=B8=AD=EF=BC=8C=E6=B7=BB=E5=
+=8A=A0=E8=AF=A5=E8=AE=BE=E5=A4=87=E7=9A=84DTS=E6=8F=8F=E8=BF=B0=EF=BC=8C=E5=
+=85=B6=E6=A0=BC=E5=BC=8F=E5=92=8C=E6=AD=A3=E5=B8=B8=E7=9A=84platform device=
+=E4=B8=80=E8=87=B4=E3=80=82</p>  <p>3=EF=BC=89DTS=E6=8F=8F=E8=BF=B0=E4=B8=
+=AD=E7=9A=84compatible=E5=85=B3=E9=94=AE=E5=AD=97=E7=94=A8=E4=BA=8E=E8=AE=
+=BE=E5=A4=87=E5=92=8C=E9=A9=B1=E5=8A=A8=E7=9A=84probe=EF=BC=8C=E5=A6=82=E2=
+=80=9Ccompatible =3D "fsl,pfuze100";=E2=80=9D=EF=BC=8C=E5=85=B6=E5=AE=83=E5=
+=AD=97=E6=AE=B5=E6=A0=B9=E6=8D=AE=E5=AE=9E=E9=99=85=E6=83=85=E5=86=B5=E8=87=
+=AA=E8=A1=8C=E6=B7=BB=E5=8A=A0=E3=80=82</p>  <p>4=EF=BC=89=E7=BC=96=E5=86=
+=99=E8=AF=A5=E8=AE=BE=E5=A4=87=E7=9A=84=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=
+=EF=BC=8C=E5=AE=8C=E6=88=90=E5=A6=82=E4=B8=8B=E5=86=85=E5=AE=B9=EF=BC=88=E5=
+=85=B7=E4=BD=93=E5=8F=AF=E5=8F=82=E8=80=83drivers/regulator/pfuze100-regula=
+tor.c=EF=BC=89=EF=BC=9A</p>  <blockquote>   <p><font style=3D"background-co=
+lor: #ffffff"></font>a=EF=BC=89=E5=AE=9A=E4=B9=89=E4=B8=80=E4=B8=AAstruct i=
+2c_driver=E7=B1=BB=E5=9E=8B=E7=9A=84=E5=8F=98=E9=87=8F=EF=BC=8C=E5=B9=B6=E8=
+=B0=83=E7=94=A8module_i2c_driver=E6=8E=A5=E5=8F=A3=E5=B0=86=E5=85=B6=E6=B3=
+=A8=E5=86=8C=E5=88=B0I2C core=E4=B8=AD=E3=80=82</p>    <p>b=EF=BC=89=E8=AF=
+=A5=E5=8F=98=E9=87=8F=E5=8C=85=E5=90=AB=E5=BA=94=E5=8C=85=E5=90=AB=E4=B8=80=
+=E4=B8=AADTS=E4=B8=AD=E7=9A=84=E2=80=9Ccompatible =E2=80=9D=E5=AD=97=E6=AE=
+=B5=E7=9B=B8=E5=90=8C=E7=9A=84of_match_table=EF=BC=8C=E4=BB=A5=E5=8F=8A=E4=
+=B8=80=E4=B8=AAprobe=E6=8E=A5=E5=8F=A3=E3=80=82</p> </blockquote>  <p>5=EF=
+=BC=89=E7=94=B1=E2=80=9C<a href=3D"http://www.wowotech.net/comm/i2c_provide=
+r.html">Linux I2C framework(2)_I2C provider</a>=E2=80=9D=E7=9A=84=E6=8F=8F=
+=E8=BF=B0=E5=8F=AF=E7=9F=A5=EF=BC=8CI2C framework core=E4=BC=9A=E5=9C=A8=E6=
+=AF=8F=E4=B8=80=E4=B8=AAI2C adapter=E6=B3=A8=E5=86=8C=E6=97=B6=EF=BC=8C=E4=
+=B8=BA=E5=AE=83=E4=B8=8B=E9=9D=A2=E6=89=80=E6=9C=89=E7=9A=84slave device=E5=
+=88=9B=E5=BB=BAstruct i2c_client=E7=BB=93=E6=9E=84=EF=BC=8C=E5=B9=B6=E5=8C=
+=B9=E9=85=8D=E5=AF=B9=E5=BA=94=E7=9A=84struct i2c_driver=E5=8F=98=E9=87=8F=
+=EF=BC=8C=E8=B0=83=E7=94=A8driver=E7=9A=84probe=E6=8E=A5=E5=8F=A3=E3=80=82<=
+/p>  <p>6=EF=BC=89i2c_driver=E7=9A=84probe=E6=8E=A5=E5=8F=A3=E7=9A=84=E8=BE=
+=93=E5=85=A5=E5=8F=82=E6=95=B0=E6=98=AFstruct i2c_client=E7=B1=BB=E5=9E=8B=
+=E7=9A=84=E6=8C=87=E9=92=88=EF=BC=88=E4=BB=A3=E8=A1=A8I2C slave device=EF=
+=BC=89=EF=BC=8C=E4=BB=A5struct i2c_client=E6=8C=87=E9=92=88=E4=B8=BA=E5=8F=
+=82=E6=95=B0=EF=BC=8C=E5=8F=AF=E4=BB=A5=E8=B0=83=E7=94=A8i2c_master_send/i2=
+c_master_recv=E6=8E=A5=E5=8F=A3=E8=BF=9B=E8=A1=8C=E7=AE=80=E5=8D=95=E7=9A=
+=84I2C=E4=BC=A0=E8=BE=93=EF=BC=8C=E5=90=8C=E6=97=B6=EF=BC=8C=E4=B9=9F=E5=8F=
+=AF=E4=BB=A5=E9=80=9A=E8=BF=87=E8=AF=A5=E6=8C=87=E9=92=88=E8=8E=B7=E5=BE=97=
+=E6=89=80=E5=B1=9E=E7=9A=84I2C adapter=E6=8C=87=E9=92=88=EF=BC=8C=E7=84=B6=
+=E5=90=8E=E9=80=9A=E8=BF=87i2c_transfer=E6=8E=A5=E5=8F=A3=EF=BC=8C=E8=BF=9B=
+=E8=A1=8C=E6=9B=B4=E4=B8=BA=E5=A4=8D=E6=9D=82=E7=9A=84read=E3=80=81write=E6=
+=93=8D=E4=BD=9C=EF=BC=88=E5=8F=AF=E5=8F=82=E8=80=83=E2=80=9Cdrivers/base/re=
+gmap/regmap-i2c.c=E2=80=9D=E4=B8=AD=E7=9A=84regmap_i2c_read=E6=8E=A5=E5=8F=
+=A3=EF=BC=89=E3=80=82</p>  <h5>3.2 =E5=BD=A2=E6=80=812</h5>  <p>1=EF=BC=89=
+=E6=A0=B9=E6=8D=AE=E7=A1=AC=E4=BB=B6=E7=9A=84=E8=BF=9E=E6=8E=A5=E6=96=B9=E5=
+=BC=8F=EF=BC=8C=E7=A1=AE=E5=AE=9A=E8=AF=A5=E8=AE=BE=E5=A4=87=E6=89=80=E4=BB=
+=8E=E5=B1=9E=E7=9A=84I2C controller=EF=BC=88=E5=9C=A8I2C framework=E4=B8=AD=
+=E7=A7=B0=E4=BD=9CI2C adapter=EF=BC=89=EF=BC=8C=E4=BE=8B=E5=A6=82=E7=AC=AC2=
+=E7=AB=A0=E4=BE=8B=E5=AD=90=E4=B8=AD=E7=9A=84i2c2=E3=80=82</p>  <p>2=EF=BC=
+=89=E5=B0=86=E8=AF=A5=E8=AE=BE=E5=A4=87=EF=BC=88=E5=A6=82HDMI=EF=BC=89=E5=
+=BD=93=E5=81=9A=E4=B8=80=E4=B8=AAplatform device=EF=BC=8C=E5=B9=B6=E6=8C=89=
+=E7=85=A7platform device=E7=9A=84=E9=80=9A=E7=94=A8=E6=96=B9=E6=B3=95=EF=BC=
+=8C=E6=8F=90=E4=BE=9BDTS=E6=8F=8F=E8=BF=B0=E3=80=81=E7=BC=96=E5=86=99platfo=
+rm driver=EF=BC=8C=E5=8F=AF=E5=8F=82=E8=80=83=E7=AC=AC2=E7=AB=A0=E4=B8=AD=
+=E6=8F=8F=E8=BF=B0=E7=9A=84hdmi=E7=9A=84=E4=BE=8B=E5=AD=90=E3=80=82</p>  <p=
+>3=EF=BC=89DTS=E6=8F=8F=E8=BF=B0=E4=B8=AD=EF=BC=8C=E4=BD=BF=E7=94=A8=E4=B8=
+=80=E4=B8=AA=E5=8F=98=E9=87=8F=EF=BC=8C=E6=8C=87=E5=90=91=E5=85=B6I2C adapt=
+er=E7=9A=84DTS=E8=8A=82=E7=82=B9=EF=BC=8C=E4=BE=8B=E5=A6=82=EF=BC=9A=E2=80=
+=9C<font style=3D"background-color: #ffff00">ddc-i2c-bus =3D &lt;&amp;i2c2&=
+gt;; </font>=E2=80=9D=E3=80=82</p>  <p>4=EF=BC=89=E5=9C=A8platform driver=
+=E7=9A=84probe=E5=87=BD=E6=95=B0=E4=B8=AD=EF=BC=8C=E4=BB=A5=E2=80=9C<font s=
+tyle=3D"background-color: #ffff00">ddc-i2c-bus </font>=E2=80=9D=E5=8F=82=E6=
+=95=B0=EF=BC=8C=E8=B0=83=E7=94=A8of_parse_phandle=E6=8E=A5=E5=8F=A3=EF=BC=
+=8C=E8=8E=B7=E5=8F=96I2C adapter=E7=9A=84device node=EF=BC=88=E5=8D=B3i2c=
+=E7=9A=84device node=EF=BC=89=EF=BC=8C=E7=84=B6=E5=90=8E=E8=B0=83=E7=94=A8o=
+f_find_i2c_adapter_by_node=E8=8E=B7=E5=8F=96=E7=9B=B8=E5=BA=94=E7=9A=84I2C =
+adapter=E6=8C=87=E9=92=88=EF=BC=8C=E5=A6=82=E4=B8=8B=EF=BC=9A</p>  <blockqu=
+ote>   <p>/* drivers/gpu/drm/panel/panel-simple.c */</p>    <p>ddc =3D of_p=
+arse_phandle(dev-&gt;of_node, "ddc-i2c-bus", 0);      <br>if (ddc) {       =
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel-&gt;ddc =3D of_find_i2=
+c_adapter_by_node(ddc);       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; of_node_put(ddc);</p>    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if=
+ (!panel-&gt;ddc) {      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; err =3D -EPROBE_DEFER;       <=
+br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp; goto free_backlight;       <br>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp; }       <br>}</p> </blockquote>  <p>5=EF=BC=89=E8=8E=B7=
+=E5=BE=97struct i2c_adapter=E6=8C=87=E9=92=88=E5=90=8E=EF=BC=8C=E5=8D=B3=E5=
+=8F=AF=E9=80=9A=E8=BF=87i2c_transfer=E6=8E=A5=E5=8F=A3=EF=BC=8C=E5=8D=B3=E5=
+=8F=AF=E8=BF=9B=E8=A1=8Cread=E3=80=81write=E6=93=8D=E4=BD=9C=E3=80=82</p>  =
+<h4>4. =E5=85=B3=E9=94=AE=E6=95=B0=E6=8D=AE=E7=BB=93=E6=9E=84=E5=92=8CAPI=
+=E4=BB=8B=E7=BB=8D</h4>  <h5>4.1 i2c client</h5>  <p>=E7=94=B1=E2=80=9C<a h=
+ref=3D"http://www.wowotech.net/comm/i2c_overview.html">Linux I2C framework(=
+1)_=E6=A6=82=E8=BF=B0</a>=E2=80=9D=E5=8F=AF=E7=9F=A5=EF=BC=8CI2C framework=
+=E4=BD=BF=E7=94=A8struct i2c_client=E6=8A=BD=E8=B1=A1I2C slave device=EF=BC=
+=88=E5=AF=B9=E5=BA=94=E8=AE=BE=E5=A4=87=E6=A8=A1=E5=9E=8B=E4=B8=AD=E7=9A=84=
+struct device=EF=BC=89=EF=BC=8C=E5=85=B7=E4=BD=93=E5=A6=82=E4=B8=8B=EF=BC=
+=9A</p>  <pre style=3D"border-bottom: #cecece 1px solid; border-left: #cece=
+ce 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 4=
+0px; padding-left: 5px; width: 657px; padding-right: 5px; height: 170px; ov=
+erflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px soli=
+d; padding-top: 5px"><pre style=3D"background-color: #fbfbfb; margin: 0em; =
+width: 100%; font-family: consolas,'Courier New',courier,monospace; font-si=
+ze: 12px">  1: <span style=3D"color: #008000">/* include/linux/i2c.h */</sp=
+an>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  2:=
+=20
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  3: =
+<span style=3D"color: #008000">/**
+</span></pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 1=
+00%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px=
+">  4:  * struct i2c_client - represent an I2C slave device
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  5: =
+ * @flags: I2C_CLIENT_TEN indicates the device uses a ten bit chip address;
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  6: =
+ *      I2C_CLIENT_PEC indicates it uses SMBus Packet Error Checking
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  7: =
+ * @addr: Address used on the I2C bus connected to the parent adapter.
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  8: =
+ * @name: Indicates the type of the device, usually a chip name that's
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  9: =
+ *      generic enough to hide second-sourcing and compatible revisions.
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 10: =
+ * @adapter: manages the bus segment hosting this I2C device
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 11: =
+ * @dev: Driver model device node for the slave.
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 12: =
+ * @irq: indicates the IRQ generated by this device (if any)
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 13: =
+ * @detected: member of an i2c_driver.clients list or i2c-core's
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 14: =
+ *      userspace_devices list
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 15: =
+ *
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 16: =
+ * An i2c_client identifies a single device (i.e. chip) connected to an
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 17: =
+ * i2c bus. The behaviour exposed to Linux is defined by the driver
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 18: =
+ * managing the device.
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 19: =
+ */
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 20: =
+<span style=3D"color: #0000ff">struct</span> i2c_client {
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 21: =
+        <span style=3D"color: #0000ff">unsigned</span> <span style=3D"color=
+: #0000ff">short</span> flags;           <span style=3D"color: #008000">/* =
+div., see below              */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 22: =
+        <span style=3D"color: #0000ff">unsigned</span> <span style=3D"color=
+: #0000ff">short</span> addr;            <span style=3D"color: #008000">/* =
+chip address - NOTE: 7bit    */</span>
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 23: =
+                                        <span style=3D"color: #008000">/* a=
+ddresses are stored in the  */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 24: =
+                                        <span style=3D"color: #008000">/* _=
+LOWER_ 7 bits               */ </span>
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 25: =
+        <span style=3D"color: #0000ff">char</span> name[I2C_NAME_SIZE];
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 26: =
+        <span style=3D"color: #0000ff">struct</span> i2c_adapter *adapter; =
+   <span style=3D"color: #008000">/* the adapter we sit on        */</span>
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 27: =
+        <span style=3D"color: #0000ff">struct</span> device dev;           =
+   <span style=3D"color: #008000">/* the device structure         */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 28: =
+        <span style=3D"color: #0000ff">int</span> irq;                     =
+   <span style=3D"color: #008000">/* irq issued by device         */</span>
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 29: =
+        <span style=3D"color: #0000ff">struct</span> list_head detected;
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 30: =
+};</pre></pre>
+
+<blockquote>
+  <p>1=EF=BC=89flags=EF=BC=8C=E6=8C=87=E7=A4=BA=E8=AF=A5I2C slave device=E4=
+=B8=80=E4=BA=9B=E7=89=B9=E6=80=A7=EF=BC=8C=E5=8C=85=E6=8B=AC=EF=BC=9A</p>
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I2C_CLIENT_PEC=EF=BC=8Cindi=
+cates it uses SMBus Packet Error Checking=EF=BC=9B=20
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I2C_CLIENT_TEN=EF=BC=8Ci=
+ndicates the device uses a ten bit chip address=EF=BC=9B=20
+
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I2C_CLIENT_WAKE=EF=BC=8C=
+=E8=AF=A5=E8=AE=BE=E5=A4=87=E5=85=B7=E5=A4=87wakeup=E7=9A=84=E8=83=BD=E5=8A=
+=9B=E3=80=82=20
+
+    <br></p>
+
+  <p>2=EF=BC=89addr=EF=BC=8C=E8=AF=A5=E8=AE=BE=E5=A4=87=E7=9A=847-bit=E7=9A=
+=84slave=E5=9C=B0=E5=9D=80=E3=80=82</p>
+
+  <p>3=EF=BC=89adapter=EF=BC=8C=E8=AF=A5=E8=AE=BE=E5=A4=87=E6=89=80=E5=9C=
+=A8=E7=9A=84I2C controller=E3=80=82</p>
+
+  <p>4=EF=BC=89irq=EF=BC=8Cirq number=EF=BC=88=E5=A6=82=E6=9E=9C=E6=9C=89=
+=E7=9A=84=E8=AF=9D=EF=BC=89=E3=80=82</p>
+</blockquote>
+
+<p>=E9=80=9A=E5=B8=B8=E6=83=85=E5=86=B5=E4=B8=8B=EF=BC=8Cstruct i2c_client=
+=E5=8F=98=E9=87=8F=E6=98=AF=E7=94=B1I2C core=E5=9C=A8register adapter=E7=9A=
+=84=E6=97=B6=E5=80=99=EF=BC=8C=E8=A7=A3=E6=9E=90adapter=E7=9A=84child node=
+=E8=87=AA=E8=A1=8C=E5=88=9B=E5=BB=BA=E7=9A=84=EF=BC=88=E5=85=B7=E4=BD=93=E5=
+=8F=AF=E5=8F=82=E8=80=83=E2=80=9C<a href=3D"http://www.wowotech.net/comm/i2=
+c_provider.html">Linux I2C framework(2)_I2C provider</a>=E2=80=9D=EF=BC=89=
+=EF=BC=8C=E8=AF=A5=E6=95=B0=E6=8D=AE=E7=BB=93=E6=9E=84=E4=B8=AD=E7=9A=84=E6=
+=9C=89=E4=BA=9B=E4=BF=A1=E6=81=AF=EF=BC=8C=E5=8F=AF=E9=80=9A=E8=BF=87DTS=E9=
+=85=8D=E7=BD=AE=EF=BC=8C=E5=8C=85=E6=8B=AC=EF=BC=9A</p>
+
+<blockquote>
+  <p>xxx:xxx@08 {=20
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reg =3D &lt;0x08&gt;;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; /* =E5=AF=B9=E5=BA=94struct i2c_client=E4=B8=AD=
+=E7=9A=84=E2=80=98addr=E2=80=99*/=20
+
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interrupts =3D &lt;16 8&=
+gt;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* =E5=AF=B9=
+=E5=BA=94struct i2c_client=E4=B8=AD=E7=9A=84=E2=80=98irq=E2=80=99*/=20
+
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wakeup-source;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp; /* =E5=AF=B9=E5=BA=94flags=E4=B8=AD=E7=9A=84I2C_CLIENT_WAKE */=20
+
+    <br>};</p>
+</blockquote>
+
+<h5>4.2 I2C adapter</h5>
+
+<p>I2C=E6=95=B0=E6=8D=AE=E4=BC=A0=E8=BE=93=EF=BC=88read or write=EF=BC=89=
+=EF=BC=8C=E9=9C=80=E8=A6=81=E4=BB=A5struct i2c_adapter=E4=B8=BA=E6=93=8D=E4=
+=BD=9C=E5=AF=B9=E8=B1=A1=EF=BC=8C=E5=85=B7=E4=BD=93=E5=8F=AF=E5=8F=82=E8=80=
+=83=E2=80=9C<a href=3D"http://www.wowotech.net/comm/i2c_provider.html">Linu=
+x I2C framework(2)_I2C provider</a>=E2=80=9D=E3=80=82</p>
+
+<h5>4.3 i2c msg</h5>
+
+<p>I2C=E6=95=B0=E6=8D=AE=E4=BC=A0=E8=BE=93=E7=9A=84=E5=8D=95=E4=BD=8D=EF=BC=
+=8C=E5=85=B7=E4=BD=93=E5=8F=AF=E5=8F=82=E8=80=83=E2=80=9C<a href=3D"http://=
+www.wowotech.net/comm/i2c_provider.html">Linux I2C framework(2)_I2C provide=
+r</a>=E2=80=9D=E3=80=82</p>
+
+<h5>4.4 =E7=BC=96=E5=86=99I2C slave driver=E6=89=80=E9=9C=80=E4=BD=BF=E7=94=
+=A8=E7=9A=84API</h5>
+
+<pre style=3D"border-bottom: #cecece 1px solid; border-left: #cecece 1px so=
+lid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padd=
+ing-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top=
+: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pr=
+e style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; font-family=
+: consolas,'Courier New',courier,monospace; font-size: 12px">  1: <span sty=
+le=3D"color: #008000">/* include/linux/i2c.h */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  2:=
+=20
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  3: =
+<span style=3D"color: #008000">/* must call put_device() when done with ret=
+urned i2c_client device */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  4: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>struct</span> i2c_client *of_find_i2c_device_by_node(<span style=3D"color:=
+ #0000ff">struct</span> device_node *node);
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  5:=
+=20
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  6: =
+<span style=3D"color: #008000">/* must call put_device() when done with ret=
+urned i2c_adapter device */</span>
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  7: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>struct</span> i2c_adapter *of_find_i2c_adapter_by_node(<span style=3D"colo=
+r: #0000ff">struct</span> device_node *node);</pre></pre>
+
+<blockquote>
+  <p>=E9=80=9A=E8=BF=87DTS=E8=8A=82=E7=82=B9=E8=8E=B7=E5=8F=96=E7=9B=B8=E5=
+=BA=94=E7=9A=84client=E6=88=96=E8=80=85adapter=E6=8C=87=E9=92=88=EF=BC=8C3.=
+2=E4=B8=AD=E7=9A=84=E4=BE=8B=E5=AD=90=E5=B7=B2=E7=BB=8F=E8=AF=B4=E6=98=8E=
+=E4=BA=86of_find_i2c_adapter_by_node=E5=87=BD=E6=95=B0=E7=9A=84=E4=BD=BF=E7=
+=94=A8=E5=9C=BA=E6=99=AF=E3=80=82</p>
+</blockquote>
+
+<pre style=3D"border-bottom: #cecece 1px solid; border-left: #cecece 1px so=
+lid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padd=
+ing-left: 5px; width: 654px; padding-right: 5px; height: 214px; overflow: a=
+uto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; paddin=
+g-top: 5px"><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 10=
+0%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px"=
+>  1: <span style=3D"color: #008000">/* include/linux/i2c.h */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  2:=
+=20
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  3: =
+<span style=3D"color: #008000">/*
+</span></pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 1=
+00%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px=
+">  4:  * The master routines are the ones normally used to transmit data t=
+o devices
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  5: =
+ * on a bus (or read from them). Apart from two basic transfer functions to
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  6: =
+ * transmit one message at a time, a more complex version can be used to
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  7: =
+ * transmit an arbitrary number of messages without interruption.
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  8: =
+ * @count must be be less than 64k since msg.len is u16.
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px">  9: =
+ */
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 10: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>int</span> i2c_master_send(<span style=3D"color: #0000ff">const</span> <sp=
+an style=3D"color: #0000ff">struct</span> i2c_client *client, <span style=
+=3D"color: #0000ff">const</span> <span style=3D"color: #0000ff">char</span>=
+ *buf,
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 11: =
+                           <span style=3D"color: #0000ff">int</span> count)=
+;
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 12: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>int</span> i2c_master_recv(<span style=3D"color: #0000ff">const</span> <sp=
+an style=3D"color: #0000ff">struct</span> i2c_client *client, <span style=
+=3D"color: #0000ff">char</span> *buf,
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 13: =
+                           <span style=3D"color: #0000ff">int</span> count)=
+;
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 14:=
+=20
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 15: =
+<span style=3D"color: #008000">/* Transfer num messages.
+</span></pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 1=
+00%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px=
+"> 16:  */
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 17: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>int</span> i2c_transfer(<span style=3D"color: #0000ff">struct</span> i2c_a=
+dapter *adap, <span style=3D"color: #0000ff">struct</span> i2c_msg *msgs,
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 18: =
+                        <span style=3D"color: #0000ff">int</span> num);
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 19: =
+<span style=3D"color: #008000">/* Unlocked flavor */</span>
+</pre><pre style=3D"background-color: #ffffff; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 20: =
+<span style=3D"color: #0000ff">extern</span> <span style=3D"color: #0000ff"=
+>int</span> __i2c_transfer(<span style=3D"color: #0000ff">struct</span> i2c=
+_adapter *adap, <span style=3D"color: #0000ff">struct</span> i2c_msg *msgs,
+</pre><pre style=3D"background-color: #fbfbfb; margin: 0em; width: 100%; fo=
+nt-family: consolas,'Courier New',courier,monospace; font-size: 12px"> 21: =
+                          <span style=3D"color: #0000ff">int</span> num);</=
+pre></pre>
+
+<blockquote>
+  <p><font style=3D"background-color: #efefef">i2c=E6=95=B0=E6=8D=AE=E4=BC=
+=A0=E8=BE=93=E6=9C=89=E5=85=B3=E7=9A=84=E6=8E=A5=E5=8F=A3=E6=9C=89=E4=B8=A4=
+=E7=B1=BB=EF=BC=9A</font></p>
+
+  <p>=E4=B8=80=E7=B1=BB=E6=98=AF=E4=BB=A5i2c client=E4=B8=BA=E5=8F=82=E6=95=
+=B0=EF=BC=8C=E8=BF=9B=E8=A1=8C=E7=AE=80=E5=8D=95=E7=9A=84=E6=95=B0=E6=8D=AE=
+=E6=94=B6=E5=8F=91=EF=BC=8C=E5=8C=85=E6=8B=ACi2c_master_send/i2c_master_rec=
+v=E3=80=82=E8=AF=A5=E6=96=B9=E6=B3=95=E5=8F=AA=E5=8F=AF=E4=BB=A5=E9=80=9A=
+=E8=BF=87=E6=A0=87=E5=87=86=E6=96=B9=E5=BC=8F=EF=BC=8C=E5=8F=91=E9=80=81=E6=
+=88=96=E8=80=85=E6=8E=A5=E6=94=B6=E4=B8=80=E5=AE=9A=E6=95=B0=E9=87=8F=E7=9A=
+=84=E6=95=B0=E6=8D=AE=E3=80=82</p>
+
+  <p>=E5=8F=A6=E4=B8=80=E7=B1=BB=E6=98=AF=E4=BB=A5i2c adapter=E5=92=8Ci2c m=
+sg=E4=B8=BA=E5=8F=82=E6=95=B0=EF=BC=8C=E5=8F=AF=E4=BB=A5=E6=9B=B4=E4=B8=BA=
+=E7=81=B5=E6=B4=BB=E7=9A=84read=E6=88=96=E8=80=85write=E6=95=B0=E6=8D=AE=EF=
+=BC=8C=E5=8C=85=E6=8B=ACi2c_transfer=E3=80=82=E4=BD=BF=E7=94=A8=E8=AF=A5=E6=
+=96=B9=E6=B3=95=E5=8F=AF=E4=BB=A5=E4=BB=A5struct i2c_msg=E4=B8=BA=E5=8F=82=
+=E6=95=B0=EF=BC=8C=E4=B8=80=E6=AC=A1=E8=AF=BB=E5=8F=96=E3=80=81=E6=88=96=E8=
+=80=85=E5=86=99=E5=85=A5=E3=80=81=E6=88=96=E8=80=85=E8=AF=BB=E5=8F=96=E5=8A=
+=A0=E5=86=99=E5=85=A5=EF=BC=8C=E4=B8=80=E5=AE=9A=E6=95=B0=E9=87=8F=E7=9A=84=
+=E6=95=B0=E6=8D=AE=E3=80=82</p>
+</blockquote>
+
+<p><em></em></p>
+
+<p><em>=E5=8E=9F=E5=88=9B=E6=96=87=E7=AB=A0=EF=BC=8C=E8=BD=AC=E5=8F=91=E8=
+=AF=B7=E6=B3=A8=E6=98=8E=E5=87=BA=E5=A4=84=E3=80=82=E8=9C=97=E7=AA=9D=E7=A7=
+=91=E6=8A=80</em>=EF=BC=8C<a href=3D"http://www.wowotech.net/comm/i2c_consu=
+mer.html">www.wowotech.net</a>=E3=80=82</p>	<p class=3D"tag">=E6=A0=87=E7=
+=AD=BE:	<a href=3D"http://www.wowotech.net/tag/Linux">Linux</a>	<a href=3D"=
+http://www.wowotech.net/tag/I2C">I2C</a>	<a href=3D"http://www.wowotech.net=
+/tag/consumer">consumer</a>	<a href=3D"http://www.wowotech.net/tag/slave">s=
+lave</a></p>
+		<a href=3D"http://www.wowotech.net/support_us.html" style=3D"display:bloc=
+k;text-align:center;">
+		<img src=3D"http://www.wowotech.net/content/uploadfile/201605/ef3e1463542=
+768.png" align=3D"middle" width=3D"86" height=3D"40">
+	</a>
+	<div class=3D"nextlog">		=C2=AB <a href=3D"http://www.wowotech.net/linux_a=
+pplication/wifi-test-2.html">Debian=E4=B8=8B=E7=9A=84WiFi=E5=AE=9E=E9=AA=8C=
+=EF=BC=88=E4=BA=8C=EF=BC=89=EF=BC=9A=E6=97=A0=E7=BA=BF=E7=BD=91=E5=8D=A1=E8=
+=87=AA=E5=8A=A8=E8=BF=9E=E6=8E=A5AP</a>
+				|
+				 <a href=3D"http://www.wowotech.net/linux_application/why-systemd.html"=
+>systemd=EF=BC=9A=E4=B8=BA=E4=BD=95=E8=A6=81=E5=88=9B=E5=BB=BA=E4=B8=80=E4=
+=B8=AA=E6=96=B0=E7=9A=84init=E7=B3=BB=E7=BB=9F=E8=BD=AF=E4=BB=B6</a>=C2=BB
+	</div>
+		<a name=3D"comments"></a>
+	<p class=3D"comment-header"><b>=E8=AF=84=E8=AE=BA=EF=BC=9A</b></p>
+			<div class=3D"comment" id=3D"comment-6433">
+		<a name=3D"6433"></a>
+				<div class=3D"comment-info">
+			<b>=E9=9D=92=E6=98=A5=E5=B9=B4=E5=B0=91 </b><br><span class=3D"comment-t=
+ime">2017-12-29 14:37</span>
+			<div class=3D"comment-content">wowo=E5=A4=A7=E4=BE=A0=EF=BC=8C=E4=BB=80=
+=E4=B9=88=E6=97=B6=E5=80=99=E6=90=9E=E7=AF=87spi=E7=9A=84=E6=96=87=E7=AB=A0=
+=EF=BC=9F=E6=9C=9F=E5=BE=85ing</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-6433">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-6441">
+		<a name=3D"6441"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2018-01-01 21:59</span>
+			<div class=3D"comment-content">@=E9=9D=92=E6=98=A5=E5=B9=B4=E5=B0=91=EF=
+=BC=9ASPI=E7=9A=84=E5=BA=94=E7=94=A8=E5=9C=BA=E6=99=AF=E6=B2=A1=E6=9C=89I2C=
+=E9=82=A3=E4=B9=88=E5=B9=BF=E6=B3=9B=EF=BC=8C=E6=89=80=E4=BB=A5=E6=89=8D=E6=
+=B2=A1=E6=9C=89=E5=86=99=E5=AE=83=EF=BC=8C=E6=9C=89=E6=9C=BA=E4=BC=9A=E7=9A=
+=84=E8=AF=9D=E5=86=8D=E5=86=99=E5=90=A7=EF=BC=8C=E5=A4=9A=E8=B0=A2=E5=85=B3=
+=E6=B3=A8:-)</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-6441">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+		<div class=3D"comment" id=3D"comment-6159">
+		<a name=3D"6159"></a>
+				<div class=3D"comment-info">
+			<b>=E6=88=91=E4=B8=80=E7=B1=B3=E5=85=AB </b><br><span class=3D"comment-t=
+ime">2017-11-01 11:18</span>
+			<div class=3D"comment-content">wowo=E4=BD=A0=E5=A5=BD=EF=BC=8C=E5=8F=97=
+=E7=9B=8A=E5=8C=AA=E6=B5=85=EF=BC=8C=E4=BD=86=E6=98=AF=E7=AC=AC=E5=9B=9B=E7=
+=AF=87=E6=B2=A1=E6=9C=89=E6=89=BE=E5=88=B0=EF=BC=8C=E5=8F=AA=E6=9C=89=E5=89=
+=8D=E4=B8=89=E7=AF=87=EF=BC=8C=E5=8F=AF=E5=90=A6=E5=B8=AE=E6=88=91=E5=8F=91=
+=E4=B8=AA=E9=93=BE=E6=8E=A5</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-6159">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-6161">
+		<a name=3D"6161"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2017-11-01 21:43</span>
+			<div class=3D"comment-content">@=E6=88=91=E4=B8=80=E7=B1=B3=E5=85=AB=EF=
+=BC=9A=E6=88=91=E8=BF=98=E6=B2=A1=E5=86=99=E7=AC=AC=E5=9B=9B=E7=AF=87=E5=91=
+=A2=EF=BC=8C=E6=89=80=E4=BB=A5=E4=BD=A0=E6=8F=8D=E6=98=AF=E6=89=BE=E4=B8=8D=
+=E5=88=B0=E5=95=8A=EF=BC=8C=E5=93=88=E5=93=88~~</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-6161">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+		<div class=3D"comment" id=3D"comment-5986">
+		<a name=3D"5986"></a>
+				<div class=3D"comment-info">
+			<b>=E5=B0=8F=E7=99=BD </b><br><span class=3D"comment-time">2017-09-04 23=
+:42</span>
+			<div class=3D"comment-content">wowo=E4=BD=A0=E5=A5=BD=EF=BC=81=E5=9C=A8o=
+f_i2c_register_device=E5=87=BD=E6=95=B0=E4=B8=AD=E6=98=AF=E8=A7=A3=E6=9E=90=
+i2c=E7=9A=84slaver=E8=AE=BE=E5=A4=87=E7=9A=84=E4=BF=A1=E6=81=AF=EF=BC=8C=E4=
+=B8=BB=E8=A6=81=E6=98=AF=E5=A1=AB=E5=85=85struct i2c_board_info=E7=BB=93=E6=
+=9E=84=EF=BC=8C=E7=84=B6=E5=90=8E=E5=86=85=E6=A0=B8=E4=BD=BF=E7=94=A8i2c_ne=
+w_device(adap, &amp;info)=E8=A7=A3=E6=9E=90=E6=88=90client=E4=BF=A1=E6=81=
+=AF=EF=BC=8C=E6=88=91=E7=9C=8B=E4=BA=86=E6=BA=90=E7=A0=81=EF=BC=8C=E5=B9=B6=
+=E6=B2=A1=E6=9C=89=E7=9C=8B=E5=88=B0struct i2c_client=E4=B8=AD=E7=9A=84irq=
+=E4=BF=A1=E6=81=AF=E7=9A=84=E8=A7=A3=E6=9E=90=EF=BC=81=E4=B8=8D=E7=9F=A5=E9=
+=81=93=E6=98=AF=E4=B8=8D=E6=98=AF=E5=93=AA=E9=87=8C=E6=B2=A1=E6=9C=89=E6=B3=
+=A8=E6=84=8F=E5=88=B0=EF=BC=81=E5=9C=A8=E6=AD=A4=E8=AF=B7=E6=95=99=EF=BC=81=
+=E9=9A=BE=E9=81=93=E8=BF=99=E4=B8=AAirq=E4=BF=A1=E6=81=AF=E7=9A=84=E5=A1=AB=
+=E5=85=85=EF=BC=8C=E5=86=85=E6=A0=B8=E5=B9=B6=E6=B2=A1=E6=9C=89=E5=B8=AE=E6=
+=88=91=E4=BB=AC=E5=A1=AB=E5=85=85=E5=90=97=EF=BC=9F=E6=88=91=E4=BB=AC=E8=87=
+=AA=E5=B7=B1=E7=9A=84=E9=A9=B1=E5=8A=A8=E4=B8=AD=E8=A7=A3=E6=9E=90=EF=BC=9F=
+=E4=BD=86=E6=98=AF=E6=83=B3=E6=83=B3=E4=B9=9F=E4=B8=8D=E5=90=88=E7=90=86=EF=
+=BC=8C=E5=9B=A0=E4=B8=BAplatform_device=E8=A7=A3=E6=9E=90=E8=B5=84=E6=BA=90=
+=E7=9A=84=E6=97=B6=E5=80=99=E9=83=BD=E4=BC=9A=E9=A1=BA=E5=B8=A6=E5=B0=86irq=
+=E4=BF=A1=E6=81=AF=E8=A7=A3=E6=9E=90=E3=80=82
+<br>
+<br>static struct i2c_client *of_i2c_register_device(struct i2c_adapter *ad=
+ap,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s=
+truct device_node *node)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;struct i2c_board_info info =3D {};
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;addr_be =3D of_get_property(node, "reg", &amp;l=
+en);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;addr =3D be32_to_cpup(addr_be);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;info.addr =3D addr;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;info.of_node =3D of_node_get(node);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;info.archdata =3D &amp;dev_ad;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;result =3D i2c_new_device(adap, &amp;info);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return result;
+<br>}</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-5986">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-5987">
+		<a name=3D"5987"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2017-09-05 10:31</span>
+			<div class=3D"comment-content">@=E5=B0=8F=E7=99=BD=EF=BC=9Ai2c_device_pr=
+obe=E4=B8=AD=E8=A7=A3=E6=9E=90=E7=9A=84=EF=BC=9A
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!client-&gt;irq &am=
+p;&amp; dev-&gt;of_node) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;=20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;int irq =3D of_irq_get(dev-&gt;of_node, 0);&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;if (irq =3D=3D -EPROBE_DEFER)&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;re=
+turn irq;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;if (irq &lt; 0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ir=
+q =3D 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;client-&gt;irq =3D irq;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-5987">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			<div class=3D"comment comment-children" id=3D"comment-5991">
+		<a name=3D"5991"></a>
+				<div class=3D"comment-info">
+			<b>=E5=B0=8F=E7=99=BD </b><br><span class=3D"comment-time">2017-09-05 23=
+:05</span>
+			<div class=3D"comment-content">@wowo=EF=BC=9A=E8=B0=A2=E8=B0=A2</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-5991">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+		</div>
+		<div class=3D"comment" id=3D"comment-4480">
+		<a name=3D"4480"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">emeralddream</=
+a> </b><br><span class=3D"comment-time">2016-08-31 09:04</span>
+			<div class=3D"comment-content">=E4=BA=B2=E7=88=B1=E7=9A=84=E7=89=88=E4=
+=B8=BB=EF=BC=9A
+<br> =E8=AF=B7=E6=95=99=E4=B8=80=E4=B8=AA=E9=97=AE=E9=A2=98=E3=80=82=E5=A6=
+=82=E6=9E=9C=E6=88=91=E8=A6=81=E5=90=91flash=E5=86=99=E5=85=A5=E4=B8=80=E4=
+=B8=AA=E5=AD=97=E8=8A=82=E7=9A=84=E6=95=B0=E6=8D=AE=E3=80=82
+<br>=E6=96=B9=E6=B3=951=EF=BC=9A
+<br>
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].addr =3D client-&gt;addr;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].flags =3D client-&gt;flags;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].len =3D 1;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].buf =3D &amp;wr_reg;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[1].addr =3D client-&gt;addr;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[1].flags =3D client-&gt;flags;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[1].len =3D 1;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[1].buf =3D buf;
+<br>=E6=96=B9=E6=B3=952=EF=BC=9A
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char *bufs[2] =3D{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {wr_reg},{=
+*buf}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg[0].addr =3D client-=
+&gt;addr;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].flags =3D client-&gt;flags;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].len =3D 2;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;msg[0].buf =3D &amp;bufs;
+<br>
+<br>=E5=B0=B1=E6=98=AF=E6=8A=8A=E5=86=99=E5=85=A5=E7=9A=84=E5=9C=B0=E5=9D=
+=80=E5=92=8C=E6=95=B0=E6=8D=AE =E5=88=86=E6=88=902=E4=B8=AA=E4=B8=8D=E5=90=
+=8C=E7=9A=84 MSG=EF=BC=8C=E6=88=96=E8=80=85=E5=9C=A8=E5=90=8C=E4=B8=80=E4=
+=B8=AAmsg=E3=80=82=E6=9C=89=E6=B2=A1=E6=9C=89=E4=BB=80=E4=B9=88=E4=B8=8D=E5=
+=90=8C=EF=BC=9F=E5=88=86=E6=88=902=E4=B8=AAmsg=E4=BC=9A=E4=B8=8D=E4=BC=9A=
+=E5=9C=A8=E4=BC=A0=E9=80=81=E5=86=99=E5=85=A5=E5=9C=B0=E5=9D=80=E5=90=8E=EF=
+=BC=8C=E5=8F=88=E5=8F=91=E9=80=811=E5=B8=A7i2c=E4=BB=8E=E6=9C=BA=E5=9C=B0=
+=E5=9D=80+wr=EF=BC=8C=E7=84=B6=E5=90=8E=E5=86=8D=E5=8F=91=E8=A6=81=E5=86=99=
+=E7=9A=84=E6=95=B0=E6=8D=AE=E3=80=82</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-4480">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-4481">
+		<a name=3D"4481"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2016-08-31 09:21</span>
+			<div class=3D"comment-content">@emeralddream=EF=BC=9A=E6=98=AF=E7=94=B1=
+=E5=8C=BA=E5=88=AB=E7=9A=84=E3=80=82=E5=85=B7=E4=BD=93=E7=9A=84=E8=A1=8C=E4=
+=B8=BA=EF=BC=8C=E5=92=8CController=E7=9A=84=E9=BB=98=E8=AE=A4=E9=85=8D=E7=
+=BD=AE=E6=9C=89=E5=85=B3=EF=BC=8Cmsg=E7=9A=84flags=E5=8F=82=E6=95=B0=E4=B9=
+=9F=E5=8F=AF=E4=BB=A5=E5=BD=B1=E5=93=8D=EF=BC=8C=E5=85=B7=E4=BD=93=E5=8F=AF=
+=E4=BB=A5=E5=8F=82=E8=80=83http://www.wowotech.net/comm/i2c_provider.html=
+=E4=B8=AD=E6=9C=89=E5=85=B3=E7=9A=84=E8=AF=B4=E6=98=8E=E3=80=82</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-4481">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+		<div class=3D"comment" id=3D"comment-4342">
+		<a name=3D"4342"></a>
+				<div class=3D"comment-info">
+			<b>Peter </b><br><span class=3D"comment-time">2016-07-28 22:29</span>
+			<div class=3D"comment-content">Audio Codec =E6=9C=89=E9=9F=B3=E9=A2=91=
+=E6=95=B0=E6=8D=AE=E6=8E=A5=E5=8F=A3(eg: I2S/PCM =E7=AD=89)=E7=94=A8=E4=BA=
+=8E=E4=BC=A0=E8=BE=93=E6=95=B0=E5=AD=97=E9=9F=B3=E9=A2=91=E4=BF=A1=E5=8F=B7=
+=EF=BC=8C=E8=80=8Ci2c=E6=80=BB=E7=BA=BF =E4=B8=BB=E8=A6=81=E7=94=A8=E4=BA=
+=8E=E9=85=8D=E7=BD=AE=E5=AF=84=E5=AD=98=E5=99=A8=EF=BC=9B=E5=9B=A0=E6=AD=A4=
+=E5=BA=94=E8=AF=A5=E5=B1=9E=E4=BA=8E=E5=BD=A2=E6=80=812</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-4342">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-4344">
+		<a name=3D"4344"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2016-07-29 08:43</span>
+			<div class=3D"comment-content">@Peter=EF=BC=9A=E5=A4=9A=E8=B0=A2=E6=8F=
+=90=E9=86=92=EF=BC=8C=E4=BD=A0=E8=AF=B4=E7=9A=84=E6=98=AF=E5=AF=B9=E7=9A=84=
+:-)</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-4344">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			<div class=3D"comment comment-children" id=3D"comment-5482">
+		<a name=3D"5482"></a>
+				<div class=3D"comment-info">
+			<b>ohyes158 </b><br><span class=3D"comment-time">2017-04-24 15:29</span>
+			<div class=3D"comment-content">@wowo=EF=BC=9A=E5=AF=B9=E4=BA=8E=E5=BD=A2=
+=E6=80=812=E7=9A=84i2c slave=EF=BC=8C=E5=85=B6=E5=AE=9E=E4=B9=9F=E4=B8=8D=
+=E5=B1=9E=E4=BA=8Eplatform
+<br>=E4=BE=9D=E7=84=B6=E6=98=AFi2c device=EF=BC=8C=E5=8F=AA=E6=98=AF=E4=BB=
+=8E=E7=B1=BB=E8=AE=BE=E5=A4=87=E6=9D=A5=E8=AF=B4=EF=BC=8C=E4=BC=9A=E4=BB=8E=
+=E5=B1=9E=E4=BA=8E=E9=9F=B3=E9=A2=91(=E9=9F=B3=E9=A2=91codec)=E6=88=96=E8=
+=80=85=E8=A7=86=E9=A2=91=E5=AD=90=E7=B3=BB=E7=BB=9F=EF=BC=88v4l2 subdev=EF=
+=BC=89</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-5482">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+		</div>
+		<div class=3D"comment" id=3D"comment-3727">
+		<a name=3D"3727"></a>
+				<div class=3D"comment-info">
+			<b>Musiclover </b><br><span class=3D"comment-time">2016-03-25 23:01</spa=
+n>
+			<div class=3D"comment-content">=E5=88=9A=E5=A5=BD=E5=AD=A6=E4=B9=A0i2c=
+=E5=B0=B1=E7=9C=8B=E8=A7=81wowo=E6=9B=B4=E6=96=B0=E6=96=87=E7=AB=A0=EF=BC=
+=8C=E6=88=91=E7=9C=9F=E6=98=AF=E6=9C=89=E7=A6=8F=E3=80=82</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-3727">=E5=9B=9E=E5=A4=8D</a></div>
+		</div>
+			<div class=3D"comment comment-children" id=3D"comment-3728">
+		<a name=3D"3728"></a>
+				<div class=3D"comment-info">
+			<b><a href=3D"http://www.wowotech.net/" target=3D"_blank">wowo</a> </b><=
+br><span class=3D"comment-time">2016-03-26 11:10</span>
+			<div class=3D"comment-content">@Musiclover=EF=BC=9A=E5=93=88=E5=93=88=EF=
+=BC=8C=E5=AE=A2=E6=B0=94=E4=BA=86=EF=BC=8C=E5=B8=8C=E6=9C=9B=E5=A4=9A=E6=8F=
+=90=E5=AE=9D=E8=B4=B5=E6=84=8F=E8=A7=81~~</div>
+			<div class=3D"comment-reply"><a href=3D"http://www.wowotech.net/comm/i2c=
+_consumer.html#comment-3728">=E5=9B=9E=E5=A4=8D</a></div>		</div>
+			</div>
+		</div>
+	    <div id=3D"pagenavi">
+	        </div>
+		<div id=3D"comment-place">
+	<div class=3D"comment-post" id=3D"comment-post">
+		<div class=3D"cancel-reply" id=3D"cancel-reply" style=3D"display:none"><a=
+>=E5=8F=96=E6=B6=88=E5=9B=9E=E5=A4=8D</a></div>
+		<p class=3D"comment-header"><b>=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA=EF=BC=
+=9A</b><a name=3D"respond"></a></p>
+		<form method=3D"post" name=3D"commentform" action=3D"http://www.wowotech.=
+net/index.php?action=3Daddcom" id=3D"commentform">
+		=09
+						<p>
+				<input type=3D"text" name=3D"comname" maxlength=3D"49" value=3D"" size=
+=3D"22" tabindex=3D"1">
+				<label for=3D"author"><small>=E6=98=B5=E7=A7=B0</small></label>
+			</p>
+			<p>
+				<input type=3D"text" name=3D"commail" maxlength=3D"128" value=3D"" size=
+=3D"22" tabindex=3D"2">
+				<label for=3D"email"><small>=E9=82=AE=E4=BB=B6=E5=9C=B0=E5=9D=80 (=E9=
+=80=89=E5=A1=AB)</small></label>
+			</p>
+			<p>
+				<input type=3D"text" name=3D"comurl" maxlength=3D"128" value=3D"" size=
+=3D"22" tabindex=3D"3">
+				<label for=3D"url"><small>=E4=B8=AA=E4=BA=BA=E4=B8=BB=E9=A1=B5 (=E9=80=
+=89=E5=A1=AB)</small></label>
+			</p>
+						<p><textarea name=3D"comment" id=3D"comment" rows=3D"10" tabindex=3D"=
+4"></textarea></p>
+			<p><img src=3D"http://www.wowotech.net/include/lib/checkcode.php" align=
+=3D"absmiddle"><input name=3D"imgcode" type=3D"text" class=3D"input" size=
+=3D"5" tabindex=3D"5"> <input type=3D"submit" id=3D"comment_submit" value=
+=3D"=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA" tabindex=3D"6"></p>
+		=09
+		</form>
+	</div>
+	</div>
+		<div style=3D"clear:both;"></div>
+</div><!--end #contentleft-->
+<ul id=3D"sidebar">
+	<li>
+	<h3><span>=E7=AB=99=E5=86=85=E6=90=9C=E7=B4=A2</span></h3>
+	<ul>
+	<div id=3D"bdcs"><div class=3D"bdcs-container"><meta http-equiv=3D"x-ua-co=
+mpatible" content=3D"IE=3D9">   <!-- =E5=B5=8C=E5=85=A5=E5=BC=8F -->  <div =
+class=3D"bdcs-main bdcs-clearfix" id=3D"default-searchbox">      <div class=
+=3D"bdcs-search bdcs-clearfix" id=3D"bdcs-search-inline">          <form ac=
+tion=3D"http://zhannei.baidu.com/cse/search" method=3D"get" target=3D"_blan=
+k" class=3D"bdcs-search-form" autocomplete=3D"off" id=3D"bdcs-search-form">=
+                                                                           =
+                         <input type=3D"text" name=3D"q" class=3D"bdcs-sear=
+ch-form-input" id=3D"bdcs-search-form-input" placeholder=3D"=E8=AF=B7=E8=BE=
+=93=E5=85=A5=E5=85=B3=E9=94=AE=E8=AF=8D" style=3D"height: 22px; line-height=
+: 22px;">              <input type=3D"submit" class=3D"bdcs-search-form-sub=
+mit " id=3D"bdcs-search-form-submit" value=3D"=E6=90=9C=E7=B4=A2">         =
+              </form>      </div>                  </div>                  =
+         </div></div>	</ul>
+	</li>
+	<li>
+	<h3><span>=E5=8A=9F=E8=83=BD</span></h3>
+	<ul>
+	<a href=3D"http://www.wowotech.net/message_board.html">=E7=95=99=E8=A8=80=
+=E6=9D=BF<br></a>
+<a href=3D"http://www.wowotech.net/?plugin=3Dcommentlist">=E8=AF=84=E8=AE=
+=BA=E5=88=97=E8=A1=A8<br></a>
+<a href=3D"http://www.wowotech.net/support_list">=E6=94=AF=E6=8C=81=E8=80=
+=85=E5=88=97=E8=A1=A8<br></a>	</ul>
+	</li>
+	<li>
+	<h3><span>=E6=9C=80=E6=96=B0=E8=AF=84=E8=AE=BA</span></h3>
+	<ul id=3D"newcomment">
+		<li id=3D"comment">smcdef	<br><a href=3D"http://www.wowotech.net/process_=
+management/451.html#7365">@null=EF=BC=9A=E6=98=AF=E7=9A=84=EF=BC=8C=E5=A4=
+=9A=E8=B0=A2=E6=8C=87=E6=AD=A3=E3=80=82</a></li>
+		<li id=3D"comment">tuhh	<br><a href=3D"http://www.wowotech.net/kernel_syn=
+chronization/memory-barrier.html#7364">=E8=83=BD=E4=B8=8D=E8=83=BD=E5=B0=86=
+=E5=8F=82=E8=80=83=E6=96=87=E7=8C=AE=E4=B9=9F=E4=B8=80=E8=B5=B7=E5=88=97=E4=
+=B8=80=E4=B8=8B=E5=91=A2</a></li>
+		<li id=3D"comment">wangzhe	<br><a href=3D"http://www.wowotech.net/pm_subs=
+ystem/cpufreq_governor.html#7363">=E6=84=9F=E8=B0=A2=E5=88=86=E4=BA=AB=EF=
+=BC=81=E8=AF=B7=E9=97=AE=E4=B8=80=E4=B8=8B=EF=BC=8Cgovernor=E6=8E=A7=E5=88=
+=B6=E8=B0=83=E9=A2=91=E7=9A=84=E5=8A=A8=E4=BD=9C=E5=A4=9A=E9=95=BF=E6=97=B6=
+=E9=97=B4=E8=A2=AB...</a></li>
+		<li id=3D"comment">smcdef	<br><a href=3D"http://www.wowotech.net/process_=
+management/448.html#7362">@markened=EF=BC=9Amax_vruntime()=E4=BD=9C=E7=94=
+=A8=E5=85=B6=E5=AE=9E=E5=B0=B1=E5=83=8F...</a></li>
+		<li id=3D"comment">orange	<br><a href=3D"http://www.wowotech.net/pm_subsy=
+stem/suspend-irq.html#7361">@wowo=EF=BC=9A@wowo
+=E6=A0=B9=E6=8D=AE=E4=B8=8A=E9=9D=A2=E7=9A=84=E6=8F=8F=E8=BF=B0=EF=BC=8C=E6=
+=84=8F=E6=80=9D=E6=97=B6wakeup...</a></li>
+		<li id=3D"comment">Alan	<br><a href=3D"http://www.wowotech.net/device_mod=
+el/device_resource_management.html#7360">=E8=AF=B7=E9=97=AE=E4=B8=80=E4=B8=
+=8B=EF=BC=8Clinux=E5=86=85=E6=A0=B8=E8=AE=BE=E5=A4=87=E6=A8=A1=E5=9E=8B=E5=
+=9F=BA=E6=9C=AC=E4=B8=8A=E9=83=BD=E6=98=AF=E9=9D=A2=E5=90=91=E5=AF=B9=E8=B1=
+=A1=E7=9A=84=E6=A6=82=E5=BF=B5=EF=BC=8C=E4=BB=8E...</a></li>
+		</ul>
+	</li>
+	<li>
+	<h3><span>=E6=96=87=E7=AB=A0=E5=88=86=E7=B1=BB</span></h3>
+	<ul id=3D"blogsort">
+		<li>
+	<a href=3D"http://www.wowotech.net/sort/linux_kenrel">Linux=E5=86=85=E6=A0=
+=B8=E5=88=86=E6=9E=90(11)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D4"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			<ul>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/device_model">=E7=BB=9F=E4=B8=80=
+=E8=AE=BE=E5=A4=87=E6=A8=A1=E5=9E=8B(15)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D12"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/pm_subsystem">=E7=94=B5=E6=BA=90=
+=E7=AE=A1=E7=90=86=E5=AD=90=E7=B3=BB=E7=BB=9F(42)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D13"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/irq_subsystem">=E4=B8=AD=E6=96=
+=AD=E5=AD=90=E7=B3=BB=E7=BB=9F(15)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D14"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/process_management">=E8=BF=9B=E7=
+=A8=8B=E7=AE=A1=E7=90=86(24)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D15"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/kernel_synchronization">=E5=86=
+=85=E6=A0=B8=E5=90=8C=E6=AD=A5=E6=9C=BA=E5=88=B6(19)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D16"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/gpio_subsystem">GPIO=E5=AD=90=E7=
+=B3=BB=E7=BB=9F(5)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D17"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/timer_subsystem">=E6=97=B6=E9=97=
+=B4=E5=AD=90=E7=B3=BB=E7=BB=9F(14)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D18"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/comm">=E9=80=9A=E4=BF=A1=E7=B1=
+=BB=E5=8D=8F=E8=AE=AE(7)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D20"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/memory_management">=E5=86=85=E5=
+=AD=98=E7=AE=A1=E7=90=86(29)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D21"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/graphic_subsystem">=E5=9B=BE=E5=
+=BD=A2=E5=AD=90=E7=B3=BB=E7=BB=9F(1)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D23"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/filesystem">=E6=96=87=E4=BB=B6=
+=E7=B3=BB=E7=BB=9F(4)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D26"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/tty_framework">TTY=E5=AD=90=E7=
+=B3=BB=E7=BB=9F(6)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D27"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				</ul>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/u-boot">u-boot=E5=88=86=E6=9E=90(3=
+)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D25"><img src=3D"http://w=
+ww.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/linux_application">Linux=E5=BA=94=
+=E7=94=A8=E6=8A=80=E5=B7=A7(13)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D3"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/soft">=E8=BD=AF=E4=BB=B6=E5=BC=80=
+=E5=8F=91(6)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D1"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/basic_tech">=E5=9F=BA=E7=A1=80=E6=
+=8A=80=E6=9C=AF(13)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D6"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			<ul>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/bluetooth">=E8=93=9D=E7=89=99(16=
+)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D10"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/armv8a_arch">ARMv8A Arch(13)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D19"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/display">=E6=98=BE=E7=A4=BA(3)</=
+a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D22"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/usb">USB(1)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D28"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				</ul>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/basic_subject">=E5=9F=BA=E7=A1=80=
+=E5=AD=A6=E7=A7=91(10)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D7"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/tech_discuss">=E6=8A=80=E6=9C=AF=
+=E6=BC=AB=E8=B0=88(12)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D8"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			</li><li>
+	<a href=3D"http://www.wowotech.net/sort/project">=E9=A1=B9=E7=9B=AE=E4=B8=
+=93=E5=8C=BA(0)</a>
+	<a href=3D"http://www.wowotech.net/rss.php?sort=3D9"><img src=3D"http://ww=
+w.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=A2=
+=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+			<ul>
+				<li>
+			<a href=3D"http://www.wowotech.net/sort/x_project">X Project(28)</a>
+			<a href=3D"http://www.wowotech.net/rss.php?sort=3D24"><img src=3D"http:/=
+/www.wowotech.net/content/templates/default/images/rss.png" alt=3D"=E8=AE=
+=A2=E9=98=85=E8=AF=A5=E5=88=86=E7=B1=BB"></a>
+		</li>
+				</ul>
+			</li></ul>
+	</li>
+	<li>
+	<h3><span>=E9=9A=8F=E6=9C=BA=E6=96=87=E7=AB=A0</span></h3>
+	<ul id=3D"randlog">
+		<li><a href=3D"http://www.wowotech.net/device_model/dt_basic_concept.html=
+">Device Tree=EF=BC=88=E4=BA=8C=EF=BC=89=EF=BC=9A=E5=9F=BA=E6=9C=AC=E6=A6=
+=82=E5=BF=B5</a></li>
+		<li><a href=3D"http://www.wowotech.net/memory_management/436.html">ARM64 =
+Kernel Image Mapping=E7=9A=84=E5=8F=98=E5=8C=96</a></li>
+		<li><a href=3D"http://www.wowotech.net/tech_discuss/question_set_1.html">=
+=E8=9C=97=E7=AA=9D=E5=BE=AE=E4=BF=A1=E7=BE=A4=E9=97=AE=E9=A2=98=E6=95=B4=E7=
+=90=86</a></li>
+		<li><a href=3D"http://www.wowotech.net/irq_subsystem/gic-irq-chip-driver.=
+html">GIC=E9=A9=B1=E5=8A=A8=E4=BB=A3=E7=A0=81=E5=88=86=E6=9E=90=EF=BC=88=E5=
+=BA=9F=E5=BC=83=EF=BC=89</a></li>
+		<li><a href=3D"http://www.wowotech.net/basic_subject/compile-link-load.ht=
+ml">=E8=AE=A1=E7=AE=97=E6=9C=BA=E7=A7=91=E5=AD=A6=E5=9F=BA=E7=A1=80=E7=9F=
+=A5=E8=AF=86=EF=BC=88=E4=BA=8C=EF=BC=89:Relocatable Object File</a></li>
+		</ul>
+	</li>
+	<li>
+	<h3><span>=E6=96=87=E7=AB=A0=E5=AD=98=E6=A1=A3</span></h3>
+	<ul id=3D"record">
+		<li><a href=3D"http://www.wowotech.net/record/201903">2019=E5=B9=B43=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201901">2019=E5=B9=B41=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201812">2018=E5=B9=B412=E6=
+=9C=88(2)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201811">2018=E5=B9=B411=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201810">2018=E5=B9=B410=E6=
+=9C=88(2)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201808">2018=E5=B9=B48=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201806">2018=E5=B9=B46=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201805">2018=E5=B9=B45=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201804">2018=E5=B9=B44=E6=
+=9C=88(7)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201802">2018=E5=B9=B42=E6=
+=9C=88(4)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201801">2018=E5=B9=B41=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201712">2017=E5=B9=B412=E6=
+=9C=88(2)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201711">2017=E5=B9=B411=E6=
+=9C=88(2)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201710">2017=E5=B9=B410=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201709">2017=E5=B9=B49=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201708">2017=E5=B9=B48=E6=
+=9C=88(4)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201707">2017=E5=B9=B47=E6=
+=9C=88(4)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201706">2017=E5=B9=B46=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201705">2017=E5=B9=B45=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201704">2017=E5=B9=B44=E6=
+=9C=88(1)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201703">2017=E5=B9=B43=E6=
+=9C=88(8)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201702">2017=E5=B9=B42=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201701">2017=E5=B9=B41=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201612">2016=E5=B9=B412=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201611">2016=E5=B9=B411=E6=
+=9C=88(11)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201610">2016=E5=B9=B410=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201609">2016=E5=B9=B49=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201608">2016=E5=B9=B48=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201607">2016=E5=B9=B47=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201606">2016=E5=B9=B46=E6=
+=9C=88(8)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201605">2016=E5=B9=B45=E6=
+=9C=88(8)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201604">2016=E5=B9=B44=E6=
+=9C=88(7)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201603">2016=E5=B9=B43=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201602">2016=E5=B9=B42=E6=
+=9C=88(5)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201601">2016=E5=B9=B41=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201512">2015=E5=B9=B412=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201511">2015=E5=B9=B411=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201510">2015=E5=B9=B410=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201509">2015=E5=B9=B49=E6=
+=9C=88(4)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201508">2015=E5=B9=B48=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201507">2015=E5=B9=B47=E6=
+=9C=88(7)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201506">2015=E5=B9=B46=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201505">2015=E5=B9=B45=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201504">2015=E5=B9=B44=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201503">2015=E5=B9=B43=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201502">2015=E5=B9=B42=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201501">2015=E5=B9=B41=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201412">2014=E5=B9=B412=E6=
+=9C=88(17)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201411">2014=E5=B9=B411=E6=
+=9C=88(8)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201410">2014=E5=B9=B410=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201409">2014=E5=B9=B49=E6=
+=9C=88(7)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201408">2014=E5=B9=B48=E6=
+=9C=88(12)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201407">2014=E5=B9=B47=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201406">2014=E5=B9=B46=E6=
+=9C=88(6)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201405">2014=E5=B9=B45=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201404">2014=E5=B9=B44=E6=
+=9C=88(9)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201403">2014=E5=B9=B43=E6=
+=9C=88(7)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201402">2014=E5=B9=B42=E6=
+=9C=88(3)</a></li>
+		<li><a href=3D"http://www.wowotech.net/record/201401">2014=E5=B9=B41=E6=
+=9C=88(4)</a></li>
+		</ul>
+	</li>
+<div class=3D"rss">
+<a href=3D"http://www.wowotech.net/rss.php" title=3D"RSS=E8=AE=A2=E9=98=85"=
+><img src=3D"http://www.wowotech.net/content/templates/default/images/rss.g=
+if" alt=3D"=E8=AE=A2=E9=98=85Rss"></a>
+</div>
+</ul><!--end #siderbar-->
+</div><!--end #content-->
+<div style=3D"clear:both;"></div>
+<div id=3D"footerbar">
+	Copyright @ 2013-2015 <a href=3D"http://www.wowotech.net/" title=3D"wowote=
+ch">=E8=9C=97=E7=AA=9D=E7=A7=91=E6=8A=80</a> All rights reserved.
+	Powered by <a href=3D"http://www.emlog.net/" title=3D"=E9=87=87=E7=94=A8em=
+log=E7=B3=BB=E7=BB=9F">emlog</a>
+	<a href=3D"http://www.miibeian.gov.cn/" target=3D"_blank"></a> 	</div><!--=
+end #footerbar-->
+</div><!--end #wrap-->
+
+
+<div id=3D"hm_t_undefined" class=3D"hm-t-container"><div class=3D"hm-t-go-t=
+op" style=3D"display: block;"></div></div><div id=3D"qb-sougou-search" styl=
+e=3D"display: none; opacity: 0;"><p>=E6=90=9C=E7=B4=A2</p><p class=3D"last-=
+btn">=E5=A4=8D=E5=88=B6</p><iframe src=3D"cid:frame-31-b64cf3f4-cd0a-4ee0-b=
+d58-43b7792f2ee9@mhtml.blink"></iframe></div></body></html>
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.wowotech.net/content/templates/default/main.css
+
+@charset "utf-8";
+
+body { background: rgb(255, 255, 255); color: rgb(50, 50, 50); text-align: =
+center; font-style: normal; font-variant: normal; font-weight: normal; font=
+-stretch: normal; font-size: 13px; line-height: 18px; font-family: Arial, H=
+elvetica, sans-serif; margin: 0px auto; padding: 0px; }
+
+#wrap { background: rgb(255, 255, 255); width: 960px; text-align: left; mar=
+gin: 0px auto; padding: 0px; }
+
+img { border: none; }
+
+a:link, a:active, a:visited { color: rgb(136, 99, 83); text-decoration: non=
+e; }
+
+a:hover { color: rgb(136, 99, 83); text-decoration: underline; }
+
+#header h1 { color: rgb(31, 31, 31); font-size: 30px; font-weight: normal; =
+letter-spacing: 0px; margin: 10px 0px 3px; padding: 20px 0px 0px; font-fami=
+ly: Georgia, "Times New Roman", Times, serif; line-height: normal; }
+
+#header h1 a:link { color: rgb(31, 31, 31); text-decoration: none; }
+
+#header h1 a:active { color: rgb(31, 31, 31); text-decoration: none; }
+
+#header h1 a:visited { color: rgb(31, 31, 31); text-decoration: none; }
+
+#header h1 a:hover { color: rgb(31, 31, 31); text-decoration: none; }
+
+#header h3 { color: rgb(82, 82, 82); font-style: italic; font-size: 15px; f=
+ont-weight: normal; margin: 0px 0px 0px 40px; padding: 10px 0px; }
+
+#nav { margin: 10px 0px 0px; border: 1px solid rgb(238, 238, 238); }
+
+#nav .bar { margin: 0px; padding: 0px; height: 30px; }
+
+#nav .bar .item { height: 30px; line-height: 30px; display: block; float: l=
+eft; padding: 0px 18px; position: relative; }
+
+#nav a:link { color: rgb(31, 31, 31); text-decoration: none; }
+
+#nav a:active { color: rgb(31, 31, 31); text-decoration: none; }
+
+#nav a:visited { color: rgb(31, 31, 31); text-decoration: none; }
+
+#nav a:hover { color: rgb(31, 31, 31); text-decoration: underline; }
+
+#nav .current { background-color: rgb(239, 239, 239); }
+
+#nav .item:hover .sub-nav, #nav .li-hover .sub-nav { display: block; }
+
+#nav .sub-nav { display: none; position: absolute; background-color: rgb(25=
+5, 255, 255); margin: 0px; padding: 0px; list-style: none; border: 1px soli=
+d rgb(238, 238, 238); top: 30px; left: 0px; }
+
+#nav .sub-nav li { min-width: 120px; white-space: nowrap; }
+
+#nav .sub-nav a { display: block; padding: 0px 18px; }
+
+* html #nav .sub-nav a { display: inline; zoom: 1; width: 120px; }
+
+#nav .sub-nav a:hover { background-color: rgb(238, 238, 238); }
+
+#banner { height: 134px; }
+
+#pagenavi { text-align: center; font-size: 14px; }
+
+#pagenavi a { padding: 0px 3px; }
+
+#pagenavi a:hover { text-decoration: overline; }
+
+#pagenavi span { font-size: 16px; color: rgb(153, 153, 153); }
+
+#content { width: 960px; margin: 0px auto; padding: 0px; }
+
+#content p { padding: 0px 0px 15px; margin: 0px; line-height: 20px; }
+
+#content h1 { display: none; }
+
+#content h2 { color: rgb(31, 31, 31); font-size: 18px; font-weight: bold; p=
+adding: 0px; margin: 25px 0px 10px; }
+
+#content h2 a:link { color: rgb(31, 31, 31); text-decoration: none; }
+
+#content h2 a:active { color: rgb(31, 31, 31); text-decoration: none; }
+
+#content h2 a:visited { color: rgb(31, 31, 31); text-decoration: none; }
+
+#content h2 a:hover { color: rgb(31, 31, 31); text-decoration: underline; }
+
+#content h2.widgettitle { color: rgb(68, 68, 68); font-size: 12px; font-wei=
+ght: bold; margin: 25px 0px 0px; padding: 10px 0px; }
+
+#content h3 { color: rgb(68, 68, 68); font-size: 14px; font-weight: bold; m=
+argin: 15px 0px 0px; padding: 8px 0px; }
+
+#contentleft { float: left; width: 678px; margin: 0px; padding: 0px 20px 20=
+px; border-left: 1px solid rgb(238, 238, 238); border-right: 1px solid rgb(=
+238, 238, 238); }
+
+blockquote { margin: 0px 20px 20px; padding: 25px 20px; background: rgb(239=
+, 239, 239); border-left: 5px solid rgb(105, 105, 105); border-right: 5px s=
+olid rgb(105, 105, 105); }
+
+#contentleft .date { color: rgb(169, 121, 101); font-size: 12px; }
+
+#contentleft .att { color: rgb(169, 121, 101); font-size: 12px; margin: 5px=
+ 0px 0px; }
+
+#contentleft .tag { color: rgb(169, 121, 101); font-size: 12px; margin: 0px=
+; }
+
+#contentleft .count { text-align: right; font-size: 12px; }
+
+#contentleft img { max-width: 690px; }
+
+img.alignright { float: right; border: none; margin: 0px 0px 10px 10px; }
+
+img.alignleft { float: left; border: none; margin: 0px 10px 10px 0px; }
+
+img.aligncenter { display: block; border: none; margin: 10px auto; }
+
+a img.alignright { float: right; border: none; margin: 0px 0px 10px 10px; }
+
+a img.alignleft { float: left; border: none; margin: 0px 10px 10px 0px; }
+
+a img.aligncenter { display: block; border: none; margin: 10px auto; }
+
+#sidebar { float: right; width: 200px; margin: 0px; padding: 0px 19px 20px;=
+ border-right: 1px solid rgb(238, 238, 238); font-style: normal; font-varia=
+nt: normal; font-weight: normal; font-stretch: normal; font-size: 12px; lin=
+e-height: 18px; font-family: Verdana, Arial, Helvetica, sans-serif; overflo=
+w: hidden; }
+
+#sidebar ul { list-style-type: none; margin: 0px; padding: 0px; }
+
+#sidebar ul li { background: url("images/bullet.png") 0px 3px no-repeat tra=
+nsparent; margin: 0px; padding: 0px 0px 0px 18px; }
+
+#sidebar ul li ul li { background: url("images/bullet.png") 0px 3px no-repe=
+at transparent; margin: 0px; padding: 0px 0px 0px 18px; }
+
+#sidebar li { list-style-type: none; }
+
+#sidebar .search { background: url("images/search.png") 5px 3px no-repeat s=
+croll transparent; border: 1px solid rgb(204, 204, 204); border-radius: 3px=
+; font-size: 12px; line-height: 1.2em; padding: 4px 10px 4px 28px; }
+
+#footerbar { margin: 40px auto 30px; padding: 10px 0px; width: 960px; text-=
+align: center; overflow: hidden; border-top: 1px solid rgb(238, 238, 238); =
+}
+
+.footerbox { width: 31%; float: left; margin: 5px 0px 0px; padding: 0px 10p=
+x 20px; }
+
+.footerbox ul { list-style-type: none; margin: 0px; padding: 0px; }
+
+.footerbox ul li { background: url("images/bullet.png") 0px 3px no-repeat t=
+ransparent; margin: 0px; padding: 0px 0px 0px 18px; }
+
+#contentleft .nextlog { text-align: center; margin: 5px 0px; font-size: 12p=
+x; }
+
+#contentleft .comment-header { margin: 15px 0px 5px; }
+
+#contentleft .comment-post { clear: both; }
+
+#contentleft .comment-post p { margin: 5px 0px; }
+
+#contentleft .comment-post .cancel-reply { float: right; font-size: 12px; c=
+ursor: pointer; padding-right: 10%; }
+
+#contentleft .comment-post .cancel-reply:hover { text-decoration: underline=
+; }
+
+#contentleft .comment-post small { font-size: 12px; color: rgb(153, 153, 15=
+3); }
+
+#contentleft .comment-post input { padding: 5px; border: 1px solid rgb(182,=
+ 182, 182); font-size: 12px; color: rgb(51, 51, 51); width: 40%; }
+
+#contentleft .comment-post #comment { width: 90%; border: 1px solid rgb(182=
+, 182, 182); font-size: 12px; color: rgb(51, 51, 51); }
+
+#contentleft .comment-post #comment_submit { background: url("images/em_but=
+ton.gif") no-repeat; border: 0px; color: rgb(0, 0, 0); width: 111px; height=
+: 29px; text-align: center; cursor: pointer; }
+
+#contentleft .comment-post .input { width: 100px; }
+
+#contentleft .comment { margin: 10px 0px; padding: 10px 0px; font-size: 12p=
+x; border-bottom: 1px solid rgb(247, 247, 247); overflow: hidden; color: rg=
+b(51, 51, 51); height: 100%; zoom: 1; }
+
+#contentleft .comment span { color: rgb(255, 122, 21); }
+
+#contentleft .comment .comment-time { color: rgb(153, 153, 153); display: i=
+nline; font-size: 10px; }
+
+#contentleft .comment .avatar { float: left; margin: 5px; }
+
+#contentleft .comment .comment-info { float: left; width: 90%; }
+
+#contentleft .comment .comment-content { margin: 8px 0px 0px; }
+
+#contentleft .comment .comment-reply { float: right; font-size: 12px; curso=
+r: pointer; }
+
+#contentleft .comment .comment-reply:hover { text-decoration: underline; }
+
+#contentleft .comment-children { width: 95%; margin: auto; clear: both; bor=
+der: none; padding: 0px; }
+
+#contentleft .comment .comment-post { width: 90%; margin: 15px auto; }
+
+.calendartop { text-align: center; font-size: 12px; margin-left: 30px; }
+
+.calendar { margin-bottom: 10px; }
+
+.calendar td { font-size: 11px; text-align: center; padding: 1px 5px; line-=
+height: 1.6; }
+
+.calendar td a:link { color: rgb(136, 99, 83); text-decoration: none; }
+
+.calendar td a:hover { color: rgb(136, 99, 83); text-decoration: none; }
+
+.day { background: url("images/bg_cal_today.gif") 2px 1px no-repeat; }
+
+.day2 { font-weight: bold; }
+
+.sun { color: rgb(51, 51, 51); font-weight: bold; }
+
+.week { color: rgb(51, 51, 51); }
+
+.rss { margin: 20px 0px; }
+
+.attachment { margin: 0px 3px; padding: 0px 0px 0px 20px; font-weight: bold=
+; background: url("images/att.png") 2px -1px no-repeat; }
+
+#twitter li { border-bottom: 1px dotted rgb(204, 204, 204); list-style: non=
+e; }
+
+#twitter li p { font-size: 10px; text-align: right; padding: 5px 0px 2px; }
+
+#twitter p { font-size: 12px; text-align: right; }
+
+#twitter li small { font-size: 10px; padding: 0px 10px; }
+
+#twitter li .t_img { background: url("images/img.gif") no-repeat; padding: =
+0px 7px; margin: 0px 0px 0px 10px; }
+
+#tw .main_img { border: 1px solid rgb(39, 114, 174); float: left; }
+
+#tw .main_img img { border: 1px solid rgb(255, 255, 255); }
+
+#tw .op { float: left; height: 18px; margin: 6px 5px 3px; }
+
+#tw ul { margin: 5px 0px 3px 25px; width: 520px; line-height: 1.8; padding:=
+ 0px; }
+
+#tw ul .li { margin: 10px 0px; padding: 5px 0px; border-bottom: 1px solid r=
+gb(247, 247, 247); }
+
+#tw ul li { margin: 0px; padding: 0px; }
+
+#tw ul li .main_img { margin-top: 5px; }
+
+#tw ul li .post1 { float: left; font-size: 13px; margin: 0px; width: 470px;=
+ padding: 0px 0px 0px 8px; }
+
+#tw ul li .post1 span { color: rgb(136, 99, 83); font-weight: bold; }
+
+#tw ul li { clear: both; padding: 0px; margin: 0px; }
+
+#tw ul li .bttome { margin: 3px 0px; vertical-align: middle; }
+
+#tw ul li .bttome .time { float: left; line-height: 14px; margin: 0px; }
+
+#tw ul li .bttome .post { float: right; font-size: 12px; line-height: 14px;=
+ margin: 0px; }
+
+#tw .time { font-size: 12px; color: rgb(153, 153, 153); padding-left: 43px;=
+ }
+
+#tw ul .r { margin: 5px 0px 0px 40px; color: rgb(102, 102, 102); border: 0p=
+x; padding: 0px; }
+
+#tw ul .r li { padding: 5px 3px 3px; border-bottom: 1px solid rgb(247, 247,=
+ 247); width: 475px; }
+
+#tw ul .r .num { font-size: 16px; font-weight: bold; color: rgb(0, 121, 183=
+); padding: 0px 5px; float: left; width: 20px; }
+
+#tw ul .r .time { padding: 0px 5px; }
+
+#tw ul .r .name { padding: 0px; font-size: 12px; color: rgb(51, 102, 153); =
+}
+
+#tw ul .r em a { font-style: normal; }
+
+#tw ul .huifu { margin: 5px 0px 0px 43px; background: rgb(245, 245, 245); b=
+order: 1px solid rgb(204, 204, 204); text-align: center; display: none; }
+
+#tw ul .huifu textarea { margin: 5px; width: 460px; border: 1px solid rgb(2=
+04, 204, 204); overflow: auto; }
+
+#tw ul .huifu input { margin: 0px 5px; }
+
+#tw ul .huifu div { padding: 0px 5px; text-align: center; }
+
+#tw ul .huifu .text { width: 60px; }
+
+#tw ul .button_p { background: url("images/weibe_button.gif") no-repeat; bo=
+rder: 0px; cursor: pointer; width: 63px; height: 25px; }
+
+#tw .tbutton { font-size: 12px; float: none; margin-bottom: 3px; }
+
+#tw .tbutton input { width: 90px; border: 1px solid rgb(204, 204, 204); }
+
+#tw .tbutton .button_p { background: url("images/weibe_button.gif") no-repe=
+at; border: 0px; cursor: pointer; width: 60px; height: 25px; }
+
+#tw .tbutton .tinfo { float: left; }
+
+#tw .msg { clear: both; }
+
+#tw li { list-style: none; }
+
+#tw ul .huifu textarea { background-color: rgb(255, 255, 255); }
+
+#tw ul .huifu input { background-color: rgb(255, 255, 255); }
+
+#tw ul li ul { line-height: 0; font-size: 0px; }
+
+#tw ul li ul li { font-size: 12px; line-height: 22px; }
+
+#tw .top { width: 650px; }
+
+#tw ul li .post1 { width: 560px; }
+
+#tw ul { width: 610px; }
+
+#tw ul .r li { width: 565px; }
+
+#tw ul .huifu textarea { width: 550px; }
+
+#tw ul li .bttome .post { font-size: 12px; line-height: 14px; margin: 0px; =
+text-align: right; float: none; clear: both; width: 610px; background: 0px =
+center; border: 0px; }
+
+#tw ul li .bttome .time { float: none; margin-top: -25px; }
+
+#tw p .t_img { background: url("images/img.gif") no-repeat; padding: 0px 7p=
+x; margin: 0px 0px 0px 10px; }
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/templates/default/images/bullet.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
+TWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQ
+WaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec
+5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28A
+AgBw1S4kEsfh/4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0
+ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaO
+WJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv+CpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHi
+wmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH+OD+Q5+bk4eZm52zv9MWi/mvwbyI+IfHf/ryM
+AgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3/ldM9sJoFoK0Hr5i3k4/EAenqFQyDwdHAoLC+0l
+YqG9MOOLPv8z4W/gi372/EAe/tt68ABxmkCZrcCjg/1xYW52rlKO58sEQjFu9+cj/seFf/2OKdHi
+NLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R+W/QmTdw0ArIZPwE62B7XLbMB+7gECiw5Y0nYA
+QH7zLYwaC5EAEGc0Mnn3AACTv/mPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6c
+wR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5+ASXIHrcBcGYBie
+whi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1c
+QPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqO
+Y4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hM
+WEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1+TSCQOyZLkTgoh
+JZAySQtJa0jbSC2kU6Q+0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw+S3FDrFiOJMCaIkUqSU
+Eko1ZT/lBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC/p
+dLoJ3YMeRZfQl9Jr6Afp5+mD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA+Y
+b1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7O
+UndSj1DPUV+jvl/9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsb
+di97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1+rTfaetq+2mLtcu0W
+7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z+o+02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83
+MDQINpAZbDE4Y/DMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxr
+PGFiaTLbpMSkxeS+Kc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW
+2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1
+U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw+lXZxtnoXOd
+8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r+00umxvJXcM970H0
+8PdY4nHM452nm6fC85DnL152Xlle+70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l+s7pAz7GPgKfep+H
+vqa+It89viN+1n6Zfgf8nvs7+sv9j/i/4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsG
+Lww+FUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjg
+R2yIuB9pGZkX+X0UKSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4
+qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWY
+EpeyP+WDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1Ir
+eZEZkrkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/Pb
+FWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYj
+i1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVk
+Ve9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/r0q9akHV0Ibw
+Da0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e+2Sba1r/dd3vz
+DoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ulewf2Re/ranRvbNyvv7+y
+CW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPcw83fmX+39QjrSHkr0jq/dawt
+o22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtd
+UV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0utPa49R35w/eFIr1tv62X3y+1XPK509E3r
+O9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0
+/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJHzEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv95
+63Or59/94vtLz1j82PAL+YvPv655qfNy76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+
+UPPR+mPHp9BP9z7nfP78L/eE8/sl0p8zAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMA
+APn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAATElEQVR42rTQsQ3AMAgFUTuLwChkKBiDlS81
+CrbT5Oon9MUExqlrfKigzOwVNXfnVUERAdxmOwSYGSAiS9SK5pKqHja1Apj/PHPVMwC6NMpuRb/H
+EgAAAABJRU5ErkJggg==
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/templates/default/images/em_button.gif
+
+R0lGODlhbwAdALMAAAAAAP////v7+/n5+fPz8+zs7NfX19bW1s/Pz////wAAAAAAAAAAAAAAAAAA
+AAAAACH5BAEAAAkALAAAAABvAB0AAAS2MKBJq7046827/1VgCGRpnmiqrmzrvnA5IGNs33iukzOy
+/8AgblYTGo9IInLJ3Cmb0GjrKa1aBdSrlpndeoXdr1g3OxDO6LR6zW673/C4fJ6e0O/4vH5fR/D/
+gIF6doKFhodnEwWLjI2Oj5CRkpOUlZaXjYqYm5ydnp+MmqCjpKWcoqapqquoq66vna2ws7SRsrW4
+tbe5vK67vcClv8HEnsPFyJfHycySy83QmRIg1NXW19gUAREAOw==
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.wowotech.net/admin/editor/plugins/code/prettify.css
+
+@charset "utf-8";
+
+pre.prettyprint { border: 0px solid rgb(136, 136, 136); font-family: "Couri=
+er New", Courier, monospace; font-size: 12px; overflow: auto; margin: 5px 0=
+px; padding: 0px; line-height: 12pt; }
+
+.code { width: 90%; border: 1px solid rgb(136, 136, 136); }
+
+.pln { color: rgb(0, 0, 0); }
+
+@media screen {
+  .str { color: rgb(0, 136, 0); }
+  .kwd { color: rgb(0, 0, 136); font-weight: bold; }
+  .com { color: rgb(136, 0, 0); }
+  .typ { color: rgb(102, 0, 102); }
+  .lit { color: rgb(0, 102, 102); }
+  .pun, .opn, .clo { color: rgb(102, 102, 0); }
+  .tag { color: rgb(0, 0, 136); }
+  .atn { color: rgb(102, 0, 102); }
+  .atv { color: rgb(0, 136, 0); }
+  .dec, .var { color: rgb(102, 0, 102); }
+  .fun { color: red; }
+}
+
+@media print, projection {
+  .str { color: rgb(0, 102, 0); }
+  .kwd { color: rgb(0, 0, 102); font-weight: bold; }
+  .com { color: rgb(102, 0, 0); font-style: italic; }
+  .typ { color: rgb(68, 0, 68); font-weight: bold; }
+  .lit { color: rgb(0, 68, 68); }
+  .pun, .opn, .clo { color: rgb(68, 68, 0); }
+  .tag { color: rgb(0, 0, 102); font-weight: bold; }
+  .atn { color: rgb(68, 0, 68); }
+  .atv { color: rgb(0, 102, 0); }
+}
+
+ol.linenums { margin-top: 0px; margin-bottom: 0px; background: rgb(255, 255=
+, 255); }
+
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: d=
+ecimal; color: rgb(187, 187, 187); }
+
+li.L1, li.L3, li.L5, li.L7, li.L9 { list-style-type: decimal; background: r=
+gb(238, 238, 238); }
+
+.title { background-color: rgb(224, 224, 224); padding: 2px; font-weight: b=
+old; font-style: italic; }
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/uploadfile/201401/top-1389777175.jpg
+
+/9j/4AAQSkZJRgABAQAAAQABAAD//gA+Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcg
+SlBFRyB2NjIpLCBkZWZhdWx0IHF1YWxpdHkK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMP
+FB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEc
+ITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgA
+VgKgAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMC
+BAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYn
+KCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeY
+mZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5
++v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwAB
+AgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpD
+REVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ip
+qrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMR
+AD8A+f6KKKACiivQtB+C/jbXVWT+zBp0LAkSai/ldDjGzBcfiuKAPQf2aJpGg8SwNIxiRrZ1Qt8o
+J80Egep2jn2HpXN/tGKB8Q7EgcnS4yff97LXq3wk+G998PrXUm1C+t7i4v8Ayspbq2yPyy/8RwWy
+H9BjHemfEf4Qx/EDW7XUxrT6fLDbi3ZTbCVWAZmBHzLg/M3r26dwD5WsbO41HULaxtI/MubmVYYk
+yBudiAo545JFfangnwna+CvCtpotswkaMF559gUzSN95jj8AM5IVQMnFef8Agr4Gt4O8Y2Gvf8JA
+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
+4A46DJyTyTWJRRQAUUUUAFFFFABRRRQB/9k=
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/uploadfile/201603/bcbfdeb5e2740ec0411d552124ddb98320160323140500.gif
+
+R0lGODlhgALdAPcAAAMCAwQJFwsSGRUGAhQHFBMQCxgXGRATKxclNCwTDi0SLTQlFycnJicnOCgy
+NjYnKDUoOjkzKjY2Ng4TTRUsTBM0ZysXRiMqSykqWCc4RyY5VTIuSjQ4RDQ2WC8zZDpBLhREbjdG
+UCVFaCpDeSpTejlIaDdKdzVTeD5ick8SHUMTLk0tFEkqIEcpN0g1KEY8M1gmJ1k7J1k4OGIdHGYw
+EWs0Lkg3SVFFNHFGGnNNLExMTEZLUk5RT0pUU1BOSlZLW1VTSlBQUEtQclxjW0xjeVlhalVjd1Z1
+cm5STnZca3JhS2hoaGZsd2l1e3hja3FscXl5YnZ2dhdUiTNVijZlkTxupURahlJfjVJZkE9wlE9q
+pUh3pkd9s1l9q1Z8smRcgWx2kG9uoVOGsnOHkm+PsXukrX+uvFGPxGiYxGee0HSdwmugzWmj1Xml
+yHms2Hix1XWw44BWGolWMJNlM6h1PI5ZRItlQ4ZlWYZ0W5lpRpNrVJt0SZp5VoVpdIt0Z4x6fJJt
+Z5Nrf5d4aJ93c6ZzTKB7eIxzjYRhoJKJd7SHV6mHZ6aHd6iQe7aJYrOIeLqVabaWea2lfcaSWMKZ
+bMihbcqne9SjadaqeNW0doqKioaIloqVmJqFhZyFmpSYh5eXl4iMrZKkta6LjKeKr7Wlkampqa2p
+ua+zqqS3uLemqLqgsbi3rLa2t4yZxY2y0oi55aOYyKm0z6C847rSupTG3prF7LPI06fJ6KPK8anS
+6KrY9bbL5rjV6LPZ/Lrh2bfk+8iXlMOJsMakhMasksexi8qylNanhNKtk9i1iNe6lMyzqeS6jOG6
+oMGMxcq5yNzCk9bHsezJmOXKp+HMtOjRrOjWt/HGsfLXqvras/PiusPDw8TL2MfSx8fS1dPGx9PJ
+1NjUxtbW1sHP4cfX6Mnc99PY5dnd8dnp0tDv+ejXzOHS4evjyerj2Ob12fnox/bo1fr1x/332ebm
+5ujt8+fx4+n5+/Xt5Pz46P7+/v/M////AP//M///Zv//mf//zAAAACH5BAEAAP8ALAAAAACAAt0A
+AAj/ACUEGUiwoMGDCBMqXMiwocOHEA/im0ixosWLGDNq3Mixo8ePIEOKHEmyJMVPOiKqXMmypUuH
+EliZnEmzps2bOCsGycmzp0+MO38KHUq0qFGLmbQdXcoUY6lSTaNKnToxKNWrP61i3cq1a8ikXsOa
+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
+pM3atM3bxM3c1M24CggAOw==
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/uploadfile/201605/ef3e1463542768.png
+
+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
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/include/lib/checkcode.php
+
+iVBORw0KGgoAAAANSUhEUgAAAEYAAAAWBAMAAACPjvdAAAAAFVBMVEX///91EJoqFLFbYYRkK62P
+SqtxJX8JeszsAAAAzElEQVQokY2RMQ6DMAxFbUDMbqk6pzkBVS7AkAN08c7E/Y9Q20BUQhrhwYrs
+5/+dBOBCULmMNbbULA78qRZ0SZPSRPvUhVn63R8vulUDd91TvX1DO8opRknM/DlgLwAvVIAgTDc9
+JgLONbxhQwgr090gY8iYO4hRaI3R6sYsCyUd8soMwtDGsFL93M+UvHQf0+liVIit9RSlbfPGNaYD
+udcikZZ2KzOMuDLINp0AIGdeBZ1+TljjvcsZe0O7V+3j0iPj6XAMxEpzl9H2F5O6GMvfucbcAAAA
+AElFTkSuQmCC
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/templates/default/images/rss.png
+
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJDSURBVHjajJJNSBRhGMd/887MzrQxRSLb
+FuYhoUhEKsMo8paHUKFLdBDrUIdunvq4RdClOq8Hb0FBSAVCUhFR1CGD/MrIJYqs1kLUXd382N35
+6plZFOrUO/MMz/vO83+e93n+f+1zF+kQBoOQNLBJg0CTj7z/rvWjGbEOIwKp9O7WkhtQc/wMWrlI
+kP8Kc1lMS8eyFHpkpo5SgWCCVO7Z5JARhuz1Qg29fh87u6/9VWL1/SPc4Qy6n8c0FehiXin6dcCQ
+aylDMhqGz8ydS2hKkmxNkWxowWnuBLHK6G2C8X6UJkBlxUmNqLYyNbzF74QLDrgFgh9LLE0NsPKx
+jW1Hz2EdPIubsOFdH2HgbwAlC4S19dT13o+3pS+vcSfvUcq9YnbwA6muW9hNpym/FWBxfh0CZkKG
+kPBZeJFhcWQAu6EN52QGZ/8prEKW+cdXq0039UiLXhUYzdjebOJQQI30UXp6mZn+Dtam32Afu0iy
+rgUvN0r+ZQbr8HncSpUVJfwRhBWC0hyGV8CxXBL5SWYf9sYBidYLIG2V87/ifVjTWAX6AlxeK2C0
+X8e58hOr/Qa2XJ3iLMWxB1h72tHs7bgryzHAN2o2gJorTrLxRHVazd0o4TXiyV2Yjs90uzauGvvp
+pmqcLjwmbZ3V7BO2HOrBnbgrQRqWUgTZ5+Snx4WeKfzCCrmb3axODKNH+vvUyWjqyK4DiKQ0eXSp
+FsgVvLJQWpH+xSpr4otg/HI0TR/t97cxTUS+QxIMRTLi/9ZYJPI/AgwAoc3W7ZrqR2IAAAAASUVO
+RK5CYII=
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.wowotech.net/content/templates/default/images/rss.gif
+
+R0lGODlhGAAYAPf/AP99Jf+xOv2jZPzZxP+WPeNMAP+tQuZnIP+5O/+MAP+ZJP/qwv90ANVYIP+W
+Of+hQv/Yu/+VK/qJPvqNRf+QO/qaK/9pAP/CPf7Ttf+mAP6jHe5ZAP++O/+RAPzcy+18Pei1o/7W
+uv+TPP3ClOlVANRFAP+cQv+GMf+7Mv+pQvmHPv+WI/+/VP9uAP+iP//37vteAP/r1N1zQ/3k1f6J
+O/liAP7x5//x4/6mW/96AP7Db//dt/+WANVlNf/Cgv+FI/+aAP+wQvqJGv/58dtdIP++PP+JAPO0
+kv+eAP+6Pv7///+2AP+TMf73+f/Wqf6DNP+CKv5kAP+BAP/Jlf+NPP+0O/+zP/6NI/ZeAP+mP+J0
+PtxKAP6NKv+3O/74+/+dMfFZAP+PP/+iAP93Ef+GAOFhIPJdAP+tPP+rAPaEP/GAPv9+AP+tP/+0
+K/+nUP+xAP+TQedTAOZ5Pv/8+f+wP//46t6Ud/79//mdT/3v7P6/j/+/fv+pOv+wO/nf0f6WDvjC
+qP6IFehOAO1oIf+vAP/nuf+ePP/16f+dS/+xPP+aPPelc/6zbPmZT/vOtP6MP/+eGv/Rjf6sM9Be
+Mv+vP/zJoeVtLPOTYPzFmfuKCPmrX/y6kfm+nv++Zv/Pmv7UnPrCp/+PMOF2Qv+zDvurO8s9AP+r
+QP+LI//bo//25PNtIv9pBv/DMv+sI//IO/64S/+HEMlMGf+CHvuUEv+YF//KjM1WJ+Shh/+XMP+z
+Vv9uCP/iwONdFP+lMtFLEf+lOPpzHvvg2fyiEPqANeuZcNx6UP+4cP6kSf+TN/26WP+VNPmna/dZ
+AP+7Hv339//z6v+1QPiEO//u3f+RI/+RJvKAO/SBPPzp5v3s4f/v5Oh5Pv54Dut9P/qIOfiIJP/2
+3/+rBfubO+VxM/+ZOv+dOv/YsvvKpO14Nf7Np/2ucPmwbf+2bPBlFv94FfnGsPuVOv/+/PvX0PXg
+2ffl3/mYGv749/6cHf+hMv2iNvqVVf+kNv2GOf+YNuVlIP///////yH5BAEAAP8ALAAAAAAYABgA
+AAj/AP8JfDYCh4kHWVKkMGAgiEOGuWrdEEgRA4VQih64yGKKDR0rIEHSOdNLn5OKUESYIPflHp8z
+farI7NJFZiJKbBSctLGPAgF+75YJwBcgQBUESJHW7HPG1Bdpm57AceDA0R0vmCR1Qcqha5EkSaDR
+CfLLRz4qIpgw8sd2yKs2XS/ILYKiTSsNkGi5kBAm7Tq2/uok00QKhStWzUaBy4AESIcEK1T0Vebm
+BdsFOrx4UCdsyRJCaDKIAcKjgwK+IhwYisEW1Se2TTjRe/Mm9OjSCiSLIIBrB9tILAoBjlchQ+jG
+PCBL9hlhClsdQjKx+MY2WAUxYpCUhpzmEXNjgbMM/wDlDdICtgNmIe9gZIUaCWiZuJmz65gSf9ca
+/Tnvb0SC7WRMo4YKVFCAzDg3ePKAZf44g4c9qfjTRDgJJECGFFd8kAYNaHFRjg85ROCbP3kI0Qlb
+lUhhhBRrnKKNGtHQAMcYE0jAgBSwjGhOIKzZcMUaa+TwgxbcVKMCFMMA4k43OeRAzSH+1MPFHmzh
+wEAODPwggxwfWANMCGx5sA2WzimRDgHw+KNHCwy0AEAxWshxDjszsHVDO20iwhY6sgzhDwYtWGDB
+E7f0IIolBVyCTTYCRBHoCTbMAcEYMcwRwipR1LDIPJPIQMQWBQyiChZRCKoLFCcAYAEATwBQgxl0
+/kgDgi2+lACqIBuYgUUNNcDga6/MgLEBCUdQBEIspZRgawFxkLDBs8I+S0IcvBRL0T/y2NFDAw0Q
+UUYZ/Rwg7gH99CMOMX5QFBAAOw==
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39----
+Content-Type: text/html
+Content-ID: <frame-31-b64cf3f4-cd0a-4ee0-bd58-43b7792f2ee9@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--6SBrgkInGFfjIMuphm0Ez9FTEbB1uEjHqbISzhXR39------
